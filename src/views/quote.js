@@ -63,10 +63,18 @@ function quotePage() {
             <p>Accurate details help us avoid wrong estimates and prepare a clean proposal with the right service scope, timeline, and support model.</p>
 
             <div class="quote-info-list">
-              <div><strong>Devices / Users</strong><span>PCs, laptops, printers, users, servers, or cameras involved.</span></div>
-              <div><strong>Project Type</strong><span>New setup, repair, AMC, website, app, software, or upgrade.</span></div>
-              <div><strong>Location / Urgency</strong><span>Office location, preferred visit time, and how urgent the issue is.</span></div>
-              <div><strong>Expected Result</strong><span>What should be working after the service or project is completed.</span></div>
+              <div><strong>Devices / Users</strong><span>PCs, laptops, printers, users, servers, cameras, licences, or staff count involved.</span></div>
+              <div><strong>Project Type</strong><span>New setup, repair, AMC, website, app, software, automation, or upgrade work.</span></div>
+              <div><strong>Location / Urgency</strong><span>Office location, remote support option, preferred visit time, and urgency level.</span></div>
+              <div><strong>Expected Result</strong><span>What should be working after the service, installation, website, app, or software is completed.</span></div>
+              <div><strong>Reference Files</strong><span>Attach screenshots, photos, drawings, sample PDFs, Excel lists, or existing website links.</span></div>
+              <div><strong>Approval Details</strong><span>Mention budget range, decision timeline, and who should receive the proposal.</span></div>
+            </div>
+
+            <div class="quote-proof-row">
+              <span>Clear scope</span>
+              <span>Practical pricing</span>
+              <span>Support-ready plan</span>
             </div>
 
             <div class="quote-fast-box">
@@ -102,7 +110,11 @@ function quotePage() {
               <label>Budget Range<select name="budget"><option>Not Decided Yet</option><option>Small Fix / Support</option><option>Basic Website / Setup</option><option>Medium Business Project</option><option>Custom Software / Full Setup</option></select></label>
               <label>Timeline / Urgency<select name="urgency"><option>Normal Enquiry</option><option>Need Within This Week</option><option>Need This Month</option><option>Urgent IT Support</option></select></label>
             </div>
-            <label class="file-upload-field">Attach Files
+            <label class="file-upload-field custom-file-upload">Attach Files
+              <span class="file-upload-control">
+                <span class="file-upload-action"><span class="file-upload-3d-icon" aria-hidden="true"></span><span>Choose files</span></span>
+                <span class="file-upload-status" data-file-upload-status>No files selected</span>
+              </span>
               <input type="file" name="attachments" multiple />
               <span class="file-upload-note">Optional: images, PDF, documents or small supporting files. For large videos, paste a Drive/OneDrive link in the requirement box.</span>
             </label>

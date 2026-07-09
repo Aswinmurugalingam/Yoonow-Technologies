@@ -58,8 +58,22 @@ function contactPage() {
             <h2>One contact for support, setup, and project enquiries.</h2>
             <p>Whether you are starting a new office, fixing an existing setup, or planning a website/app project, share the details and we will help organize the requirement professionally.</p>
 
+            <div class="contact-highlight-strip">
+              <div><strong>Service Area</strong><span>All Over India and remote global support.</span></div>
+              <div><strong>Best For</strong><span>Urgent IT support, AMC, websites, apps, CCTV, networking, and software.</span></div>
+              <div><strong>Next Step</strong><span>Share issue details, photos, screenshots, file samples, or project notes.</span></div>
+            </div>
+
             <div class="contact-channel-list">
               ${renderChannels()}
+            </div>
+
+            <div class="contact-response-box">
+              <span>${icon('headset')}</span>
+              <div>
+                <strong>Quick support path</strong>
+                <p>For urgent issues, message on WhatsApp first. For proper tracking, submit the form with requirement details and attachments.</p>
+              </div>
             </div>
           </div>
 
@@ -86,7 +100,11 @@ function contactPage() {
               <label>Service Required<select name="service" required><option value="">Select service</option><option>Urgent IT Support</option><option>Managed IT / AMC</option><option>Computer / Laptop Service</option><option>Network / Wi‑Fi / Firewall</option><option>CCTV / NAS / Backup</option><option>Website Development</option><option>Mobile App Development</option><option>Custom Software Development</option><option>Software Licensing</option><option>Other Requirement</option></select></label>
               <label>Urgency<select name="urgency"><option>Normal Enquiry</option><option>Need Within This Week</option><option>Urgent Support</option><option>Emergency Office Issue</option></select></label>
             </div>
-            <label class="file-upload-field">Attach Files
+            <label class="file-upload-field custom-file-upload">Attach Files
+              <span class="file-upload-control">
+                <span class="file-upload-action"><span class="file-upload-3d-icon" aria-hidden="true"></span><span>Choose files</span></span>
+                <span class="file-upload-status" data-file-upload-status>No files selected</span>
+              </span>
               <input type="file" name="attachments" multiple />
               <span class="file-upload-note">Optional: images, PDF, documents or small supporting files. For large videos, paste a Drive/OneDrive link in the requirement box.</span>
             </label>

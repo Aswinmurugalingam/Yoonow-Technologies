@@ -289,6 +289,31 @@
       return files;
     }
 
+    function refreshFileUploadStatus() {
+      var selectedFiles = getSelectedFiles();
+      var status = form.querySelector('[data-file-upload-status]');
+      if (!status) return;
+      if (!selectedFiles.length) {
+        status.textContent = 'No files selected';
+        return;
+      }
+      if (selectedFiles.length === 1) {
+        status.textContent = selectedFiles[0].file.name + ' (' + formatClientFileSize(selectedFiles[0].file.size) + ')';
+        return;
+      }
+      status.textContent = selectedFiles.length + ' files selected';
+    }
+
+    form.querySelectorAll('input[type="file"]').forEach(function (field) {
+      field.addEventListener('change', refreshFileUploadStatus);
+    });
+
+    form.addEventListener('reset', function () {
+      window.setTimeout(refreshFileUploadStatus, 0);
+    });
+
+    refreshFileUploadStatus();
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
 
