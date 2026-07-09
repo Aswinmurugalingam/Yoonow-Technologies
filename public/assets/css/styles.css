@@ -6020,3 +6020,16 @@ video.lazy-video.is-ready {
 .project-detail-video-card {
   contain: layout paint style;
 }
+
+
+/* Light smooth-scroll polish: no section snap, no forced section loading */
+html.soft-scroll-active {
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  html.soft-scroll-active {
+    scroll-behavior: auto;
+  }
+}

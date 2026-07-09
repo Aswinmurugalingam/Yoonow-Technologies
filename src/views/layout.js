@@ -115,7 +115,7 @@ function renderPage({ title, description, path = '/', body }) {
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="${site.url}${path === '/' ? '' : path}" />
   <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-  <link rel="stylesheet" href="/assets/css/styles.css?v=media-cleanup-v7" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=soft-scroll-lite-v7" />
   <script>
     (function () {
       try {
@@ -183,7 +183,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=media-cleanup-v7" defer></script>
+  <script src="/assets/js/main.js?v=soft-scroll-lite-v7" defer></script>
 </body>
 </html>`;
 }
