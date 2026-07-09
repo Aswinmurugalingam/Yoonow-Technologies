@@ -38,9 +38,9 @@ function renderSupportItems() {
 
 function contactPage() {
   return renderPage({
-    title: `Contact ${site.name} | IT Support Enquiries`,
+    title: `Contact ${site.name} | IT Support Nagercoil`,
     description:
-      `Contact ${site.name} for IT support, AMC maintenance, CCTV, networking, cybersecurity, website development, Android apps, and custom software enquiries.`,
+      `Contact ${site.name}, a software company in Nagercoil, for IT support, website development, custom software development, billing software, network setup, CCTV installation, NAS setup, computer support services, and domain email setup.`,
     path: '/contact',
     body: `
       <section class="page-hero section-tight contact-hero">

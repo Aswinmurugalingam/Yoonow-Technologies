@@ -3,11 +3,12 @@ const { icon } = require('./icons');
 const { sectionIntro, renderDevelopmentPackagesSection } = require('./home');
 const { services, plans } = require('../data/siteData');
 
+
 function servicesPage() {
   return renderPage({
-    title: 'Yoonow Technologies Services | IT, CCTV, Networking & Software',
+    title: 'Software Company in Nagercoil | Website Design, IT Support & CCTV',
     description:
-      "Explore Yoonow Technologies' full range of IT services: computer support, networking, cybersecurity, CCTV, server and NAS management, cloud and Microsoft 365 support, printer support, AMC maintenance, and custom software development.",
+      "Yoonow Technologies is a software company in Nagercoil offering website design, website development, custom software development, billing software, IT support, network setup, CCTV installation, NAS setup, computer support services, and domain email setup.",
     path: '/services',
     body: `
       <section class="page-hero section-tight">
@@ -17,6 +18,7 @@ function servicesPage() {
           <p>Choose a single service call, project implementation, or ongoing AMC coverage. We support office infrastructure, user issues, security systems, printers, websites, mobile apps, and custom software requirements.</p>
         </div>
       </section>
+
       <section class="section-tight">
         <div class="page-grid service-grid service-grid-full">
           ${services.map((service) => `
@@ -62,19 +64,19 @@ function servicesPage() {
           })}
           <div class="field-gallery">
             <figure class="field-card reveal">
-              <img src="/assets/images/laptop-support.jpg" alt="Technician servicing an office laptop" loading="lazy" decoding="async" fetchpriority="low" />
+              <img src="/assets/images/laptop-support.jpg" alt="Technician servicing an office laptop" loading="lazy" />
               <figcaption class="field-caption"><strong>Computer Service</strong><span>Diagnostics & repair</span></figcaption>
             </figure>
             <figure class="field-card reveal">
-              <img src="/assets/images/server-network.jpg" alt="Server and network rack maintenance" loading="lazy" decoding="async" fetchpriority="low" />
+              <img src="/assets/images/server-network.jpg" alt="Server and network rack maintenance" loading="lazy" />
               <figcaption class="field-caption"><strong>Server & Network</strong><span>Infrastructure setup</span></figcaption>
             </figure>
             <figure class="field-card reveal">
-              <img src="/assets/images/security-camera.jpg" alt="CCTV security camera installation" loading="lazy" decoding="async" fetchpriority="low" />
+              <img src="/assets/images/security-camera.jpg" alt="CCTV security camera installation" loading="lazy" />
               <figcaption class="field-caption"><strong>CCTV & Security</strong><span>Camera installation</span></figcaption>
             </figure>
             <figure class="field-card reveal">
-              <img src="/assets/images/mobile-app.jpg" alt="Mobile app development on a smartphone" loading="lazy" decoding="async" fetchpriority="low" />
+              <img src="/assets/images/mobile-app.jpg" alt="Mobile app development on a smartphone" loading="lazy" />
               <figcaption class="field-caption"><strong>Web & Mobile</strong><span>App development</span></figcaption>
             </figure>
           </div>

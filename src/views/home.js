@@ -168,6 +168,7 @@ function heroVisual() {
 }
 
 
+
 function renderDevelopmentPackageCard(plan, typeKey, index) {
   const isOfferPackage = Boolean(plan.originalPrice);
   const priceBlock = isOfferPackage
@@ -315,7 +316,6 @@ function homePage() {
         </div>
       </div>
     </section>
-
 
     ${renderDevelopmentPackagesSection({ id: 'development-packages', extraClass: 'home-dev-packages' })}
 
@@ -608,7 +608,7 @@ function homePage() {
   `;
 
   return renderPage({
-    title: 'Yoonow Technologies | Professional IT, CCTV, Networking & Software',
+    title: 'Yoonow Technologies | Software Company in Nagercoil',
     description: site.description,
     path: '/',
     body,

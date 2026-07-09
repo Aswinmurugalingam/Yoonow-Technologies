@@ -6,9 +6,75 @@ const site = {
   whatsapp: 'https://wa.me/918610507446',
   location: 'Nagercoil',
   tagline: 'IT Support · CCTV · Networking · Websites · Software',
-  description: 'Yoonow Technologies is a Nagercoil-based technology service business providing practical IT support, computer and laptop service, networking, CCTV installation, FortiGate firewall setup, QNAP NAS storage, printer support, AMC maintenance, genuine software licensing support, websites, mobile apps, and custom software development for growing businesses.',
+  description: 'Yoonow Technologies is a software company in Nagercoil providing custom software development, business website design, website development, billing software, business automation tools, IT support, computer support services, network setup, CCTV installation, NAS setup, domain email setup, AMC support, and digital technology solutions for growing businesses.',
   serviceArea: 'Nagercoil'
 };
+
+
+const seoKeywords = [
+  'software company in Nagercoil',
+  'software development company in Nagercoil',
+  'website designer in Nagercoil',
+  'web design company Nagercoil',
+  'website development Nagercoil',
+  'billing software Nagercoil',
+  'custom software development Nagercoil',
+  'business automation software Nagercoil',
+  'IT support Nagercoil',
+  'computer support services Nagercoil',
+  'network setup Nagercoil',
+  'CCTV installation Nagercoil',
+  'NAS setup Nagercoil',
+  'domain email setup Nagercoil',
+  'software company near me',
+  'website designer near me',
+  'IT support near me',
+  'billing software company near me',
+  'CCTV and network setup near me'
+];
+
+const localSeoServices = [
+  {
+    title: 'Software Company in Nagercoil',
+    keyword: 'software company in Nagercoil',
+    text: 'Yoonow Technologies helps businesses plan, build, and maintain practical software systems, admin panels, dashboards, billing tools, and automation workflows.'
+  },
+  {
+    title: 'Website Designer in Nagercoil',
+    keyword: 'website designer in Nagercoil',
+    text: 'Professional business websites, landing pages, portfolio websites, service pages, enquiry forms, WhatsApp flows, and SEO-ready page structure for local businesses.'
+  },
+  {
+    title: 'IT Support in Nagercoil',
+    keyword: 'IT support Nagercoil',
+    text: 'Support for computers, laptops, printers, email, users, software issues, device setup, AMC maintenance, and daily business technology problems.'
+  },
+  {
+    title: 'Network Setup in Nagercoil',
+    keyword: 'network setup Nagercoil',
+    text: 'Routers, switches, cabling, Wi-Fi, firewall basics, office network cleanup, internet sharing, device access, and performance troubleshooting.'
+  },
+  {
+    title: 'CCTV Installation in Nagercoil',
+    keyword: 'CCTV installation Nagercoil',
+    text: 'Camera planning, DVR/NVR setup, storage configuration, remote viewing, cabling coordination, and preventive security support for businesses.'
+  },
+  {
+    title: 'NAS Setup in Nagercoil',
+    keyword: 'NAS setup Nagercoil',
+    text: 'NAS storage setup, shared folders, access permissions, backup planning, QNAP-style workflow support, and office file management guidance.'
+  },
+  {
+    title: 'Billing Software in Nagercoil',
+    keyword: 'billing software Nagercoil',
+    text: 'Quotation, invoice, receipt, customer records, payment tracking, dashboard reporting, and custom billing workflows for small businesses and service providers.'
+  },
+  {
+    title: 'Domain Email Setup in Nagercoil',
+    keyword: 'domain email setup Nagercoil',
+    text: 'Business domain, professional email, DNS guidance, website hosting setup, SSL, forms, and launch support for new or growing businesses.'
+  }
+];
 
 const nav = [
   {
@@ -1684,15 +1750,15 @@ const services = [
     id: 'it-support',
     number: '02',
     title: 'Managed IT Support',
-    text: 'Practical help for email, users, printers, software errors, slow systems, device setup, and daily office support requests.',
+    text: 'IT support in Nagercoil for email, users, printers, software errors, slow systems, device setup, and daily office support requests.',
     icon: 'headset',
     featured: true
   },
   {
     id: 'networking',
     number: '03',
-    title: 'Networking & Wi‑Fi',
-    text: 'Structured cabling, routers, switches, firewalls, secure Wi‑Fi, office network troubleshooting, and performance optimization.',
+    title: 'Network Setup & Wi‑Fi',
+    text: 'Network setup in Nagercoil for structured cabling, routers, switches, firewalls, secure Wi‑Fi, office troubleshooting, and performance optimization.',
     icon: 'network',
     featured: true
   },
@@ -1707,8 +1773,8 @@ const services = [
   {
     id: 'cctv',
     number: '05',
-    title: 'CCTV & Security Systems',
-    text: 'Camera planning, installation, DVR/NVR setup, remote viewing, storage configuration, and preventive security maintenance.',
+    title: 'CCTV Installation & Security Systems',
+    text: 'CCTV installation in Nagercoil with camera planning, DVR/NVR setup, remote viewing, storage configuration, and preventive security maintenance.',
     icon: 'camera',
     featured: true
   },
@@ -1716,7 +1782,7 @@ const services = [
     id: 'server-nas',
     number: '06',
     title: 'Server & NAS Support',
-    text: 'Server and NAS deployment, storage configuration, virtualization, backup scheduling, and ongoing performance and health monitoring.',
+    text: 'NAS setup in Nagercoil for storage configuration, shared folders, backup scheduling, access permissions, and ongoing performance and health monitoring.',
     icon: 'server'
   },
   {
@@ -1737,7 +1803,7 @@ const services = [
     id: 'software',
     number: '09',
     title: 'Custom Software Development',
-    text: 'Billing tools, CRM systems, attendance portals, dashboards, automation workflows, and business applications tailored to your process.',
+    text: 'Custom software development in Nagercoil for billing software, CRM systems, attendance portals, dashboards, business automation software, and workflow applications.',
     icon: 'code',
     featured: true
   },
@@ -1745,7 +1811,7 @@ const services = [
     id: 'web-mobile',
     number: '10',
     title: 'Website & Mobile App Development',
-    text: 'Professional websites, landing pages, e-commerce builds, Android/iOS apps, and digital platforms optimized for growth.',
+    text: 'Website design and website development in Nagercoil for professional websites, landing pages, e-commerce builds, mobile apps, and growth-focused digital platforms.',
     icon: 'phone',
     featured: true
   },
@@ -1753,7 +1819,7 @@ const services = [
     id: 'software-licensing',
     number: '11',
     title: 'Software Licensing Support',
-    text: 'Guidance for genuine software licence selection, purchase coordination, installation, activation, renewal tracking, and licence documentation.',
+    text: 'Software licence and domain email setup support in Nagercoil, including purchase coordination, installation, activation, renewal tracking, and documentation.',
     icon: 'shield',
     featured: true
   },
@@ -2060,4 +2126,4 @@ const promo = {
   cta: 'Book Free Assessment'
 };
 
-module.exports = { site, nav, technologies, completedProjects, services, amcPillars, plans, developmentPackages, industries, stats, launchReadiness, video, promo };
+module.exports = { site, nav, technologies, completedProjects, services, localSeoServices, seoKeywords, amcPillars, plans, developmentPackages, industries, stats, launchReadiness, video, promo };

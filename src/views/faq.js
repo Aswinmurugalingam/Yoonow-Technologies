@@ -109,7 +109,7 @@ function renderFaqGroups() {
 function faqPage() {
   return renderPage({
     title: `FAQ | ${site.name}`,
-    description: `Frequently asked questions about ${site.name} services, IT support, AMC, CCTV, networking, websites, software projects, and quotations in Nagercoil.`,
+    description: `Frequently asked questions about ${site.name}, software company in Nagercoil, website development, IT support, CCTV installation, network setup, NAS setup, billing software, and custom software projects.`,
     path: '/faq',
     body: `
       <section class="faq-pro-hero section-tight">

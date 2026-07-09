@@ -44,7 +44,7 @@ function quotePage() {
   return renderPage({
     title: `Request a Quote | ${site.name}`,
     description:
-      `${site.name} prepares clear quotations for IT support, AMC coverage, CCTV, networking, websites, Android apps, and custom software projects.`,
+      `${site.name} prepares clear quotations for website development, custom software development, billing software, IT support, network setup, CCTV installation, NAS setup, computer support services, domain email setup, and business automation software in Nagercoil.`,
     path: '/quote',
     body: `
       <section class="page-hero section-tight quote-hero">

@@ -1,4 +1,4 @@
-const { site, nav } = require('../data/siteData');
+const { site, nav, seoKeywords, localSeoServices } = require('../data/siteData');
 
 function navigation(currentPath = '/') {
   const links = nav
@@ -106,6 +106,7 @@ function renderPage({ title, description, path = '/', body }) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
   <meta name="description" content="${description || site.description}" />
+  <meta name="keywords" content="${(seoKeywords || []).join(', ')}" />
   <meta name="theme-color" content="#05070c" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="${site.name}" />
@@ -122,7 +123,7 @@ function renderPage({ title, description, path = '/', body }) {
     gtag('js', new Date());
     gtag('config', 'G-W8M54BGB32');
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=ga4-launch-v10" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=seo-background-v12" />
   <script>
     (function () {
       try {
@@ -141,6 +142,20 @@ function renderPage({ title, description, path = '/', body }) {
     email: site.email,
     telephone: site.phone,
     areaServed: ['Nagercoil'],
+    knowsAbout: seoKeywords || [],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Yoonow Technologies Local Services',
+      itemListElement: (localSeoServices || []).map((service) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: service.title,
+          description: service.text,
+          areaServed: 'Nagercoil'
+        }
+      }))
+    },
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Nagercoil',
@@ -190,7 +205,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=ga4-launch-v10" defer></script>
+  <script src="/assets/js/main.js?v=seo-background-v12" defer></script>
 </body>
 </html>`;
 }
