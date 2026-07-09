@@ -215,6 +215,7 @@ async function sendLeadEmail(payload) {
     replyTo: payload.email || smtpUser,
     subject,
     text: body,
+    html: buildLeadEmailHtml(payload),
   });
 }
 
