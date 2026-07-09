@@ -1,0 +1,27 @@
+{
+  "name": "yoonow-technologies-node3d",
+  "version": "1.0.0",
+  "description": "Professional 3D Node.js website for YooNow Technologies.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "yoonow",
+    "it-support",
+    "cctv",
+    "networking",
+    "software",
+    "nodejs"
+  ],
+  "author": "YooNow Technologies",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.16"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

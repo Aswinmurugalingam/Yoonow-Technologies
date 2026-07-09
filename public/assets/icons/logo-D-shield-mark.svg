@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="Yoonow Technologies">
+  <title>Yoonow Technologies</title>
+  <defs>
+    <linearGradient id="D-bdr" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6b2c"/>
+      <stop offset="100%" stop-color="#3d8bff"/>
+    </linearGradient>
+    <linearGradient id="D-shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141c28"/>
+      <stop offset="100%" stop-color="#0a0c12"/>
+    </linearGradient>
+    <linearGradient id="D-scan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d8bff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#3d8bff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#3d8bff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="D-center-glow" cx="50%" cy="60%" r="40%">
+      <stop offset="0%" stop-color="#ff6b2c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ff6b2c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="D-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="D-clip">
+      <path d="M40 6 L70 18 L70 46 Q70 66 40 76 Q10 66 10 46 L10 18 Z"/>
+    </clipPath>
+  </defs>
+  <path d="M40 6 L70 18 L70 46 Q70 66 40 76 Q10 66 10 46 L10 18 Z"
+    fill="url(#D-shield)" stroke="url(#D-bdr)" stroke-width="1.6"/>
+  <path d="M40 13 L63 23 L63 46 Q63 60 40 68 Q17 60 17 46 L17 23 Z"
+    stroke="#3d8bff" stroke-opacity="0.12" stroke-width="1" fill="none"/>
+  <ellipse cx="40" cy="50" rx="26" ry="20" fill="url(#D-center-glow)"/>
+  <rect x="10" y="26" width="60" height="18" fill="url(#D-scan)" clip-path="url(#D-clip)"/>
+  <line x1="22" y1="21" x2="40" y2="45"
+    stroke="#3d8bff" stroke-width="10" stroke-linecap="round"/>
+  <line x1="58" y1="21" x2="40" y2="45"
+    stroke="#3d8bff" stroke-width="10" stroke-linecap="round"/>
+  <line x1="40" y1="45" x2="40" y2="65"
+    stroke="#ff6b2c" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="40" cy="45" r="5.5" fill="#ff6b2c"/>
+  <circle cx="40" cy="45" r="9" fill="#ff6b2c" fill-opacity="0.22" filter="url(#D-glow)"/>
+  <circle cx="22" cy="21" r="2.5" fill="#ffffff" fill-opacity="0.18"/>
+  <circle cx="58" cy="21" r="2.5" fill="#ffffff" fill-opacity="0.18"/>
+  <line x1="10" y1="18" x2="26" y2="12" stroke="#ff6b2c" stroke-opacity="0.35" stroke-width="1" stroke-linecap="round"/>
+  <line x1="70" y1="18" x2="54" y2="12" stroke="#3d8bff" stroke-opacity="0.35" stroke-width="1" stroke-linecap="round"/>
+</svg>

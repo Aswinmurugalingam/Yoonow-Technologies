@@ -1,0 +1,20 @@
+{
+  "watch": [
+    "server.js",
+    "src/data",
+    "src/views",
+    "public/assets/css",
+    "public/assets/js"
+  ],
+  "ignore": [
+    "node_modules/**",
+    "public/assets/icons/**",
+    "public/assets/images/**",
+    "public/assets/video/**",
+    "*.zip",
+    "*.log"
+  ],
+  "ext": "js,json,css",
+  "delay": "700",
+  "legacyWatch": true
+}
