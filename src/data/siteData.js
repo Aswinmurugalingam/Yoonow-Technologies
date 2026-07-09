@@ -4,10 +4,10 @@ const site = {
   email: 'info@yoonowtech.com',
   phone: '+91 86105 07446',
   whatsapp: 'https://wa.me/918610507446',
-  location: 'Nagercoil · India · UAE · Dubai · Remote Support',
+  location: 'Nagercoil',
   tagline: 'IT Support · CCTV · Networking · Websites · Software',
-  description: 'Yoonow Technologies provides practical IT support, computer and laptop service, networking, CCTV installation, FortiGate firewall setup, QNAP NAS storage, printer support, AMC maintenance, genuine software licensing support, websites, mobile apps, and custom software development for businesses in Nagercoil, India, UAE, Dubai, and remote locations.',
-  serviceArea: 'Nagercoil, India, UAE, Dubai, and remote/global support'
+  description: 'Yoonow Technologies is a Nagercoil-based technology service business providing practical IT support, computer and laptop service, networking, CCTV installation, FortiGate firewall setup, QNAP NAS storage, printer support, AMC maintenance, genuine software licensing support, websites, mobile apps, and custom software development for growing businesses.',
+  serviceArea: 'Nagercoil'
 };
 
 const nav = [
@@ -1684,7 +1684,7 @@ const services = [
     id: 'it-support',
     number: '02',
     title: 'Managed IT Support',
-    text: 'Remote and on-site help for email, users, printers, software errors, slow systems, device setup, and daily office support requests.',
+    text: 'Practical help for email, users, printers, software errors, slow systems, device setup, and daily office support requests.',
     icon: 'headset',
     featured: true
   },
@@ -1786,7 +1786,7 @@ const amcPillars = [
   {
     value: '04',
     title: 'Respond',
-    text: 'We handle incidents with clear communication, remote support, and on-site visits when required.'
+    text: 'We handle incidents with clear communication, scheduled support, and client-site visits when required.'
   }
 ];
 
@@ -1796,7 +1796,7 @@ const plans = [
     desc: 'For small offices that need reliable support for important devices and common IT issues.',
     features: [
       'Up to 10 devices',
-      'Remote IT support',
+      'Scheduled IT support',
       'Standard response window',
       'Quarterly on-site check'
     ]
@@ -1807,7 +1807,7 @@ const plans = [
     popular: true,
     features: [
       'Up to 40 devices',
-      'Remote + on-site support',
+      'Client-site and scheduled support',
       'Priority response window',
       'Network + CCTV monitoring',
       'Monthly on-site visit'

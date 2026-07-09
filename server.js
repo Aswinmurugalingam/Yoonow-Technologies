@@ -8,6 +8,9 @@ const { servicesPage } = require('./src/views/services');
 const { projectsPage, projectDetailPage } = require('./src/views/projects');
 const { quotePage } = require('./src/views/quote');
 const { contactPage } = require('./src/views/contact');
+const { faqPage } = require('./src/views/faq');
+const { privacyPolicyPage } = require('./src/views/privacyPolicy');
+const { termsPage } = require('./src/views/terms');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -385,6 +388,9 @@ app.get('/projects', (_req, res) => res.send(projectsPage()));
 app.get('/projects/:slug', (req, res) => res.send(projectDetailPage(req.params.slug)));
 app.get('/quote', (_req, res) => res.send(quotePage()));
 app.get('/contact', (_req, res) => res.send(contactPage()));
+app.get('/faq', (_req, res) => res.send(faqPage()));
+app.get('/privacy-policy', (_req, res) => res.send(privacyPolicyPage()));
+app.get('/terms', (_req, res) => res.send(termsPage()));
 
 app.use((_req, res) => {
   res.status(404).send(homePage());

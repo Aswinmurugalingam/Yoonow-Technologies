@@ -25,6 +25,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.yoonowtech.com/faq</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.yoonowtech.com/privacy-policy</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.yoonowtech.com/terms</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.yoonowtech.com/projects/electra-attendance-software</loc>
     <priority>0.7</priority>
   </url>

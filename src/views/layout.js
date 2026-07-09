@@ -93,7 +93,7 @@ function footer() {
 
       <div class="page-grid footer-bottom">
         <span>&copy; <span data-year></span> ${site.name}. All rights reserved.</span>
-        <span>Professional IT, security, and software partner.</span>
+        <span class="footer-legal-links"><a href="/faq">FAQ</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a></span>
       </div>
     </footer>`;
 }
@@ -115,7 +115,7 @@ function renderPage({ title, description, path = '/', body }) {
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="${site.url}${path === '/' ? '' : path}" />
   <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-  <link rel="stylesheet" href="/assets/css/styles.css?v=soft-scroll-lite-v7" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=legal-page-redesign-v9" />
   <script>
     (function () {
       try {
@@ -133,7 +133,7 @@ function renderPage({ title, description, path = '/', body }) {
     url: site.url,
     email: site.email,
     telephone: site.phone,
-    areaServed: ['Nagercoil', 'India', 'UAE', 'Dubai', 'Remote Support'],
+    areaServed: ['Nagercoil'],
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Nagercoil',
@@ -183,7 +183,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=soft-scroll-lite-v7" defer></script>
+  <script src="/assets/js/main.js?v=legal-page-redesign-v9" defer></script>
 </body>
 </html>`;
 }
