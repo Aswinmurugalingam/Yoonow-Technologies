@@ -227,7 +227,7 @@ function buildLeadEmailHtml(payload, files = []) {
                     </td>
                   </tr>
                   <tr>
-                    <td align="center" style="color:#7f91ab;font:500 12px Arial,Helvetica,sans-serif;line-height:1.5;">Yoonow Technologies · Nagercoil · India · UAE · Dubai · Remote Support</td>
+                    <td align="center" style="color:#7f91ab;font:500 12px Arial,Helvetica,sans-serif;line-height:1.5;">Yoonow Technologies</td>
                   </tr>
                 </table>
               </td>
@@ -265,25 +265,33 @@ async function sendLeadEmail(payload, files = []) {
   const formType = payload.formType || 'Website Enquiry';
   const subject = `Yoonow Technologies - ${formType}`;
   const body = `${buildLeadEmail(payload, files)}\n\nSubmitted from: www.yoonowtech.com\nSubmitted at: ${new Date().toISOString()}`;
-  const attachments = files.map((file) => ({
-    filename: safeFileName(file.originalname),
-    content: file.buffer,
-    contentType: file.mimetype || 'application/octet-stream',
-  }));
+  const attachments = files
+    .filter((file) => file && file.buffer && file.size > 0)
+    .map((file) => ({
+      filename: safeFileName(file.originalname || 'attachment'),
+      content: Buffer.from(file.buffer),
+      contentType: file.mimetype || 'application/octet-stream',
+      contentDisposition: 'attachment',
+    }));
 
-  await transporter.sendMail({
+  const mailOptions = {
     from: `Yoonow Website <${smtpUser}>`,
     to: receiver,
     replyTo: payload.email || smtpUser,
-    subject,
+    subject: attachments.length ? `${subject} (${attachments.length} attachment${attachments.length > 1 ? 's' : ''})` : subject,
     text: body,
     html: buildLeadEmailHtml(payload, files),
-    attachments,
-  });
+  };
+
+  if (attachments.length) {
+    mailOptions.attachments = attachments;
+  }
+
+  await transporter.sendMail(mailOptions);
 }
 
 app.post('/api/leads', (req, res) => {
-  upload.array('attachments', 8)(req, res, async (uploadError) => {
+  upload.any()(req, res, async (uploadError) => {
     if (uploadError) {
       const isSizeError = uploadError.code === 'LIMIT_FILE_SIZE' || uploadError.code === 'LIMIT_FILE_COUNT';
       return res.status(isSizeError ? 413 : 400).json({
@@ -299,7 +307,9 @@ app.post('/api/leads', (req, res) => {
       return res.status(429).json({ ok: false, message: 'Too many submissions. Please try again later.' });
     }
 
-    const uploadedFiles = Array.isArray(req.files) ? req.files : [];
+    const uploadedFiles = (Array.isArray(req.files) ? req.files : [])
+      .filter((file) => file && file.buffer && file.size > 0)
+      .slice(0, 8);
     const payload = {
       formType: cleanValue(req.body.formType, 80),
       name: cleanValue(req.body.name || req.body.company, 160),

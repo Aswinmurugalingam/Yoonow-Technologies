@@ -272,7 +272,23 @@
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      var formData = new FormData(form);
+      var formData = new FormData();
+      Array.prototype.forEach.call(form.elements, function (field) {
+        if (!field || !field.name || field.disabled) return;
+
+        if (field.type === 'file') {
+          Array.prototype.forEach.call(field.files || [], function (file) {
+            if (file && file.size > 0) {
+              formData.append(field.name || 'attachments', file, file.name);
+            }
+          });
+          return;
+        }
+
+        if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) return;
+        formData.append(field.name, field.value || '');
+      });
+
       var honeypot = String(formData.get('website') || '').trim();
 
       if (honeypot) {
