@@ -1,7 +1,7 @@
 const { renderPage } = require('./layout');
 const { icon } = require('./icons');
 const aboutVideo = {
-  src: '/assets/video/about-software-development.mp4?v=about-video-v2',
+  src: '/assets/video/about-software-development.mp4',
 };
 
 const aboutHighlights = [
@@ -122,8 +122,8 @@ function aboutPage() {
           </div>
 
           <figure class="video-panel about-video-card glass reveal" data-tilt>
-            <video class="clean-video" autoplay muted loop playsinline preload="auto" aria-label="Yoonow Technologies software and web development overview video">
-              <source src="${aboutVideo.src}" type="video/mp4" />
+            <video class="clean-video lazy-video" autoplay muted loop playsinline preload="none" data-lazy-video aria-label="Yoonow Technologies software and web development overview video">
+              <source data-src="${aboutVideo.src}" type="video/mp4" />
               Your browser does not support embedded video.
             </video>
             <figcaption>

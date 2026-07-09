@@ -327,7 +327,7 @@ const completedProjects = [
     title: 'Electra Attendance Software',
     subtitle: 'Web and Android attendance system for field surveyors, draftsmen, approvals, reminders, reporting, and admin control.',
     category: 'Software + Android + Admin System',
-    image: '/assets/images/projects/electra-attendance-preview.png',
+    image: '/assets/images/projects/electra-attendance-preview.webp',
     status: 'Completed project',
     liveLabel: 'Request private demo access',
     liveNote: 'This attendance software is a private client/internal system. Public login access is restricted to protect company users, attendance data, documents and internal workflow records.',
@@ -351,12 +351,12 @@ const completedProjects = [
     businessProblem: 'Manual attendance and site data collection becomes difficult when surveyors and draftsmen work on different projects, use different vehicles, carry different equipment and submit work from different locations. The business needed one controlled platform to collect daily attendance, review pending submissions, track users, manage master data, maintain logs and support monthly reporting without scattered manual follow-up.',
     solution: 'A role-based attendance platform was developed with separate flows for surveyors, draftsmen, admins and licence/admin controls. Users submit site data and attendance from mobile or desktop, while admin users can approve or reject submissions, view analysis, manage users/devices, maintain project/activity/car/equipment lists, send notifications and monitor complete system activity.',
     gallery: [
-      '/assets/images/projects/electra-site-data-upload.png',
-      '/assets/images/projects/electra-approval-workflow.png',
-      '/assets/images/projects/electra-notifications.png',
-      '/assets/images/projects/electra-admin-panel.png',
-      '/assets/images/projects/electra-attendance-analysis.png',
-      '/assets/images/projects/electra-data-manager.png'
+      '/assets/images/projects/electra-site-data-upload.webp',
+      '/assets/images/projects/electra-approval-workflow.webp',
+      '/assets/images/projects/electra-notifications.webp',
+      '/assets/images/projects/electra-admin-panel.webp',
+      '/assets/images/projects/electra-attendance-analysis.webp',
+      '/assets/images/projects/electra-data-manager.webp'
     ],
     modules: [
       'Splash/session verification screen for controlled app opening before user workflow starts.',
@@ -432,7 +432,7 @@ const completedProjects = [
     title: 'Project Expense Management Software',
     subtitle: 'Internal expense dashboard that converts Electra attendance days into surveyor and draftsman salary cost reports.',
     category: 'Software + Expense + Salary System',
-    image: '/assets/images/projects/project-expense-system.png',
+    image: '/assets/images/projects/project-expense-system.webp',
     imageFit: 'contain',
     status: 'Completed project',
     accessType: 'internalPopup',
@@ -466,7 +466,7 @@ const completedProjects = [
     solution: 'A dedicated internal expense dashboard was prepared to read attendance-based working day data, group it by project and employee, separate surveyor and draftsman roles, apply salary/rate values and calculate total expense. The system gives management a simple monthly view with project filter, employee filter, summary cards, searchable table and download/report option.',
     workflowNote: 'This workflow is documented from the provided real project screenshot and the internal business concept shared for the Electra salary expense system.',
     gallery: [
-      '/assets/images/projects/project-expense-system.png'
+      '/assets/images/projects/project-expense-system.webp'
     ],
     modules: [
       'Monthly expense dashboard connected with the attendance workflow from Electra Attendance Software.',
@@ -543,7 +543,7 @@ const completedProjects = [
     title: 'BillNova Billing Software',
     subtitle: 'Cloud billing workspace for customers, quotations, invoices, receipts, payments, print sharing, backups, and exports.',
     category: 'Billing Software + Web App + Supabase',
-    image: '/assets/images/projects/billnova-dashboard.png',
+    image: '/assets/images/projects/billnova-dashboard.webp',
     imageFit: 'contain',
     status: 'Completed project',
     liveUrl: 'https://bill-nova-two.vercel.app',
@@ -575,10 +575,10 @@ const completedProjects = [
     solution: 'BillNova was developed as a secure billing platform with authentication, company setup, customer management, quotation/invoice/receipt modules, payment tracking, dashboard analytics, print/share output, backup snapshots and export tools. The system uses Supabase for cloud database and authentication, while the React interface keeps billing tasks simple for daily office use.',
     workflowNote: 'This workflow is prepared from the uploaded BillNova source folder analysis and provided real screenshots. The folder contains 72 files, including React/TypeScript source, Supabase schema/migrations, Vercel configuration, PWA assets, Capacitor configuration and documentation files.',
     gallery: [
-      '/assets/images/projects/billnova-login.png',
-      '/assets/images/projects/billnova-otp.png',
-      '/assets/images/projects/billnova-dashboard.png',
-      '/assets/images/projects/billnova-settings.png'
+      '/assets/images/projects/billnova-login.webp',
+      '/assets/images/projects/billnova-otp.webp',
+      '/assets/images/projects/billnova-dashboard.webp',
+      '/assets/images/projects/billnova-settings.webp'
     ],
     modules: [
       'Login screen with password access, keep-me-signed-in option and Google sign-in button.',
@@ -660,7 +660,7 @@ const completedProjects = [
     title: '360° Drone Data Visualization Platform',
     subtitle: 'Laravel based 360° drone panorama viewer with elevation switching, map markers, node navigation, and multi-domain project deployment.',
     category: 'Drone + 360° Viewer + Map Platform',
-    image: '/assets/images/projects/drone-viewer-map.png',
+    image: '/assets/images/projects/drone-viewer-map.webp',
     imageFit: 'contain',
     status: 'Completed project',
     accessType: 'internalPopup',
@@ -675,7 +675,7 @@ const completedProjects = [
     ],
     heroVideo: '/assets/video/drone-visualization-demo.mp4',
     visualVideo: '/assets/video/drone-visualization-demo.mp4',
-    videoPoster: '/assets/images/projects/drone-viewer-map.png',
+    videoPoster: '/assets/images/projects/drone-viewer-map.webp',
     introHighlights: [
       'Built as a browser-based 360° drone data visualization platform for viewing site panoramas together with a Google satellite map and location markers.',
       'The uploaded source sample shows a Laravel 9 / PHP 8 Blade project using Pano2VR player files, Google Maps API, elevation folders and route-based panorama loading.'
@@ -696,8 +696,8 @@ const completedProjects = [
     solution: 'A Laravel based web viewer was prepared to host the heavy panorama assets on the server and show only the clean viewing interface to users. The system loads the correct pano.xml by elevation, displays the 360° viewer through Pano2VR, shows Google satellite map context with markers, and allows the project to be accessed through a normal domain without downloading the full drone data folder.',
     workflowNote: 'This workflow is prepared from the uploaded Laravel source sample, project folder screenshots, and the live viewer screenshot shared for the Palm Jebel Ali 360 project.',
     gallery: [
-      '/assets/images/projects/drone-viewer-map.png',
-      '/assets/images/projects/drone-viewer-node120.png'
+      '/assets/images/projects/drone-viewer-map.webp',
+      '/assets/images/projects/drone-viewer-node120.webp'
     ],
     modules: [
       'Project domain landing flow that opens the 360° viewer directly in the browser.',
@@ -773,7 +773,7 @@ const completedProjects = [
     title: 'FortiGate + QNAP NAS + CCTV Office Setup',
     subtitle: 'One complete office infrastructure project combining firewall security, shared NAS storage, and CCTV recording in the same office network.',
     category: 'Network + NAS + CCTV',
-    image: '/assets/images/projects/office-infrastructure-preview.png',
+    image: '/assets/images/projects/office-infrastructure-preview.webp',
     status: 'Completed project',
     needLabel: 'Need Similar Setup?',
     needTitle: 'Do you need a similar office IT, firewall, NAS or CCTV setup?',
@@ -797,9 +797,9 @@ const completedProjects = [
     solution: 'A combined office IT setup was prepared with FortiGate firewall for network security, switches and cabling for stable workstation connectivity, QNAP NAS for centralised shared folders and CCTV recording integration, plus monitoring access for office camera review. The result is a cleaner, controlled and easier-to-maintain office infrastructure workflow.',
     workflowNote: 'This portfolio entry merges the earlier Project 05 FortiGate Office Network Setup, Project 06 QNAP NAS Office File System and Project 07 CCTV + QNAP QVR Pro Setup because all three belong to the same completed office infrastructure environment.',
     gallery: [
-      '/assets/images/projects/office-infrastructure-fortigate.png',
-      '/assets/images/projects/office-infrastructure-qnap-nas.png',
-      '/assets/images/projects/office-infrastructure-cctv.png'
+      '/assets/images/projects/office-infrastructure-fortigate.webp',
+      '/assets/images/projects/office-infrastructure-qnap-nas.webp',
+      '/assets/images/projects/office-infrastructure-cctv.webp'
     ],
     modules: [
       'FortiGate firewall gateway configuration for office internet, LAN control and secured network traffic flow.',
@@ -879,7 +879,7 @@ const completedProjects = [
     title: 'GeoMeta Pro GPS & EXIF Toolkit',
     subtitle: 'Browser-based EXIF metadata viewer with GPS mapping, privacy review, metadata editing, and export tools.',
     category: 'GPS + EXIF + Mapping Tool',
-    image: '/assets/images/projects/geometa-pro-dashboard.png',
+    image: '/assets/images/projects/geometa-pro-dashboard.webp',
     imageFit: 'contain',
     status: 'Completed project',
     liveUrl: 'https://geometa-pro.web.app/',
@@ -909,9 +909,9 @@ const completedProjects = [
     solution: 'GeoMeta Pro was created as a private browser-first toolkit that reads image metadata locally, detects GPS tags, plots photo locations on a map, highlights privacy exposure, supports address resolution, allows metadata editing or EXIF removal and provides structured export files for office reporting, Google Earth and GIS workflows. This makes the full metadata review process much faster and easier for non-technical users.',
     workflowNote: 'This workflow is documented from the uploaded GeoMeta Pro source folder, the shared real screenshots and the live public project page.',
     gallery: [
-      '/assets/images/projects/geometa-pro-dashboard.png',
-      '/assets/images/projects/geometa-pro-telemetry.png',
-      '/assets/images/projects/geometa-pro-google-earth.png'
+      '/assets/images/projects/geometa-pro-dashboard.webp',
+      '/assets/images/projects/geometa-pro-telemetry.webp',
+      '/assets/images/projects/geometa-pro-google-earth.webp'
     ],
     modules: [
       'Landing dashboard with upload area, statistics cards and privacy-first product introduction.',
@@ -992,7 +992,7 @@ const completedProjects = [
     title: 'Niya Education Academy Website',
     subtitle: 'Professional education academy website for 10th and 12th learners, board guidance, counseling, enquiries, calls and WhatsApp admission support.',
     category: 'Education Website + Lead Enquiry',
-    image: '/assets/images/projects/niya-education-academy-home.png',
+    image: '/assets/images/projects/niya-education-academy-home.webp',
     imageFit: 'contain',
     status: 'Completed project',
     liveUrl: 'https://www.niyaeducationacademy.com',
@@ -1028,7 +1028,7 @@ const completedProjects = [
     solution: 'A modern responsive academy website was prepared with a strong hero section, NIYA branding, programme sections, board guidance, counselling content, testimonials, FAQ, contact actions, enquiry submission workflow, WhatsApp CTA, call CTA and SEO-focused route pages. The source also includes Supabase and SMTP enquiry logic so leads can be captured and sent to the academy team for follow-up.',
     workflowNote: 'This workflow is documented from the uploaded Niya Training Academy source folder and the provided real website screenshot. Only one main visual is used for this portfolio entry as requested.',
     gallery: [
-      '/assets/images/projects/niya-education-academy-home.png'
+      '/assets/images/projects/niya-education-academy-home.webp'
     ],
     modules: [
       'Professional landing hero with NIYA logo, academy tagline, 10th and 12th education message and admission call-to-actions.',
@@ -1103,14 +1103,14 @@ const completedProjects = [
     title: 'Aswin Murugalingam Personal Portfolio Website',
     subtitle: 'Interactive 3D personal portfolio website for IT operations, infrastructure skills, work experience, certifications and contact enquiry.',
     category: 'Portfolio Webpage + 3D Website',
-    image: '/assets/images/projects/aswin-portfolio-home.png',
+    image: '/assets/images/projects/aswin-portfolio-home.webp',
     status: 'Completed project',
     liveUrl: 'https://www.aswinmurugalingam.com',
     liveLabel: 'Click here to view the project page',
     liveNote: 'Opens the live Aswin Murugalingam personal portfolio webpage with profile branding, interactive 3D workstation visual, work sections, skills, certifications, CV download and contact flow.',
     heroVideo: '/assets/video/aswin-portfolio-demo.mp4',
     visualVideo: '/assets/video/aswin-portfolio-demo.mp4',
-    videoPoster: '/assets/images/projects/aswin-portfolio-home.png',
+    videoPoster: '/assets/images/projects/aswin-portfolio-home.webp',
     needLabel: 'Need Similar Portfolio Website?',
     needTitle: 'Do you need a similar portfolio website like this?',
     needText: 'Yoonow Technologies can design and develop a professional portfolio webpage with your personal brand, profile visuals, 3D sections, skills, experience, certifications, testimonials, CV download and contact enquiry flow.',
@@ -1141,7 +1141,7 @@ const completedProjects = [
     solution: 'A React-based interactive portfolio webpage was prepared with a premium dark interface, profile photo card, animated hero headline, 3D computer/workstation canvas, navigation to work, experience, skills, certifications and testimonials, CV download action and contact section. Animation libraries and 3D rendering tools were used carefully to create a modern portfolio feel without losing professional clarity.',
     workflowNote: 'This workflow is documented from the uploaded Aswin portfolio source folder and the provided real homepage screenshot. The inside big preview is prepared as a video card without controls using the video path /assets/video/aswin-portfolio-demo.mp4.',
     gallery: [
-      '/assets/images/projects/aswin-portfolio-home.png'
+      '/assets/images/projects/aswin-portfolio-home.webp'
     ],
     modules: [
       'Hero section with name, profile photo card, animated headline and professional IT operations introduction.',
@@ -1219,7 +1219,7 @@ const completedProjects = [
     title: 'iHub Mobile Repair Shop Website',
     subtitle: 'Premium mobile, iPhone, Android and laptop repair website with orange-black device care branding and strong service enquiry flow.',
     category: 'Website + Mobile Repair + Service Business',
-    image: '/assets/images/projects/ihub-mobile-repair-home.png',
+    image: '/assets/images/projects/ihub-mobile-repair-home.webp',
     status: 'Ongoing project',
     accessType: 'internalPopup',
     liveLabel: 'Click here to view the project page',
@@ -1253,7 +1253,7 @@ const completedProjects = [
     solution: 'A modern branded website was prepared with premium orange-black styling, a large repair-focused hero message, iHub identity, navigation menu, call action, service sections, process flow, gallery, why-us content, pricing blocks, testimonials and contact section. The project is structured as a React/TanStack Start web app so it can grow into a fast, responsive and content-rich repair business website.',
     workflowNote: 'This workflow is documented from the uploaded iHub source folder and the provided real homepage screenshot. The project is marked as ongoing because the live public access is still under construction.',
     gallery: [
-      '/assets/images/projects/ihub-mobile-repair-home.png'
+      '/assets/images/projects/ihub-mobile-repair-home.webp'
     ],
     modules: [
       'Premium homepage hero with iHub logo, navigation menu, repair headline, service promise and strong orange-black branding.',
@@ -1329,7 +1329,7 @@ const completedProjects = [
     title: 'Vaishu Costume Designer Website',
     subtitle: 'Ongoing bridal, costume, boutique and training website for a complete fashion studio and customer enquiry workflow.',
     category: 'Fashion Website + Bridal Studio + Boutique',
-    image: '/assets/images/projects/vaishu-costume-designer-home.png',
+    image: '/assets/images/projects/vaishu-costume-designer-home.webp',
     imageFit: 'contain',
     status: 'Ongoing project',
     accessType: 'internalPopup',
@@ -1364,7 +1364,7 @@ const completedProjects = [
     solution: 'A premium costume designer website was prepared with a bridal-focused homepage, navigation for services, costumes, bridal, training, shop, gallery and contact sections, plus book-now and WhatsApp enquiry actions. The uploaded source folder also includes authenticated account routes, shop/cart flow, gallery pages and Supabase-ready structure, making the project suitable for future expansion beyond a basic brochure webpage.',
     workflowNote: 'This workflow is documented from the uploaded Vaishu Costume Designer project folder and the provided real homepage screenshot. The project is marked as ongoing because the public live access is still under construction.',
     gallery: [
-      '/assets/images/projects/vaishu-costume-designer-home.png'
+      '/assets/images/projects/vaishu-costume-designer-home.webp'
     ],
     modules: [
       'Luxury homepage hero with Vaishu branding, navigation menu, bridal headline, service message and large bridal visual card.',
@@ -1440,7 +1440,7 @@ const completedProjects = [
     title: 'HireFit AI',
     subtitle: 'AI-powered career workspace for ATS resume scoring, cover letters, interview preparation and job application tracking.',
     category: 'AI Software + Career Platform',
-    image: '/assets/images/projects/hirefit-ai-home.png',
+    image: '/assets/images/projects/hirefit-ai-home.webp',
     imageFit: 'contain',
     status: 'Ongoing project',
     accessType: 'internalPopup',
@@ -1478,7 +1478,7 @@ const completedProjects = [
     solution: 'HireFit AI was prepared as a structured career platform with ATS scoring, resume optimisation, cover letter generation, interview preparation, job tracker and AI-supported recommendations. The landing page explains the value clearly, while the project architecture includes frontend, backend, database schema, authentication flow, AI service integration and subscription-ready feature planning.',
     workflowNote: 'This portfolio entry is prepared from the uploaded HireFit AI project folder, README/project documentation and the working local screenshot shared after dependency installation was fixed.',
     gallery: [
-      '/assets/images/projects/hirefit-ai-home.png'
+      '/assets/images/projects/hirefit-ai-home.webp'
     ],
     modules: [
       'Landing page with HireFit AI branding, navigation, login action and get-started call-to-action.',
@@ -1558,7 +1558,7 @@ const completedProjects = [
     title: 'EngineIQ',
     subtitle: 'All-in-one engineering tools platform with calculators, AI assistant, unit converters, discipline hubs, blog content and free technical references.',
     category: 'Engineering Tools + AI Platform',
-    image: '/assets/images/projects/engineiq-home.png',
+    image: '/assets/images/projects/engineiq-home.webp',
     imageFit: 'contain',
     status: 'Ongoing project',
     accessType: 'internalPopup',
@@ -1599,7 +1599,7 @@ const completedProjects = [
     solution: 'EngineIQ was prepared as a clean engineering tools platform with a strong homepage, discipline-based navigation, calculator hubs, AI assistant page, unit converter, blog section, pricing direction, login/signup routes, SEO files, legal pages and deployment guidance. The structure makes it possible to add calculators gradually while keeping the product presentation professional and scalable.',
     workflowNote: 'This portfolio entry is documented from the uploaded EngineIQ / engineering-tools-platform source folder, README deployment guide and provided homepage screenshot. The project is marked as ongoing because the calculator library and public deployment are still being expanded.',
     gallery: [
-      '/assets/images/projects/engineiq-home.png'
+      '/assets/images/projects/engineiq-home.webp'
     ],
     modules: [
       'Homepage hero with EngineIQ branding, navigation menu, free tools badge and engineering platform headline.',
@@ -2050,7 +2050,6 @@ const video = {
     'Clear reporting after every visit',
     'Single support contact for the client team'
   ],
-  poster: '/assets/images/team-planning.jpg',
   src: '/assets/video/company-overview.mp4'
 };
 

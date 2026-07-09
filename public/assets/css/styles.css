@@ -5979,3 +5979,44 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Fast media loading polish */
+.project-image-wrap img,
+.project-detail-main-image img,
+.project-gallery-grid img,
+.field-gallery img,
+.video-panel video,
+.project-detail-video,
+.project-visual-video {
+  content-visibility: auto;
+  background: linear-gradient(135deg, rgba(61, 139, 255, .12), rgba(255, 107, 44, .08));
+}
+
+.project-image-wrap img,
+.project-detail-main-image img,
+.project-gallery-grid img,
+.field-gallery img {
+  image-rendering: auto;
+}
+
+video.lazy-video {
+  opacity: .92;
+  transform: translateZ(0);
+  background: radial-gradient(circle at 35% 25%, rgba(61, 139, 255, .20), transparent 34%), linear-gradient(135deg, rgba(9, 18, 34, .94), rgba(4, 7, 14, .98));
+}
+
+video.lazy-video.is-ready {
+  opacity: 1;
+  transition: opacity .35s var(--ease);
+}
+
+.project-card {
+  contain: layout paint style;
+}
+
+.project-gallery-grid figure,
+.project-visual-video-card,
+.project-detail-video-card {
+  contain: layout paint style;
+}

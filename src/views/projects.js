@@ -18,12 +18,23 @@ function projectStatusClass(status = '') {
   return 'project-status-default';
 }
 
-function projectCard(project) {
+function optimizedProjectImage(image) {
+  return image || '';
+}
+
+function optimizedProjectVideo(video) {
+  return video || '';
+}
+
+function projectCard(project, index = 0) {
+  const previewImage = optimizedProjectImage(project.image);
+  const priorityImage = index < 4;
+
   return `
     <article class="project-card project-card-${project.slug} ${project.imageFit === 'contain' ? 'project-card-contain' : ''} glass reveal" data-project-slug="${project.slug}" data-tilt data-project-tags="${projectFilterTags(project).join(' ')}">
       <a href="/projects/${project.slug}" class="project-card-link" aria-label="View ${project.title} details">
         <div class="project-image-wrap">
-          <img src="${project.image}" alt="${project.title} project preview" loading="lazy" />
+          <img src="${previewImage}" alt="${project.title} project preview" loading="${priorityImage ? 'eager' : 'lazy'}" decoding="async" fetchpriority="${priorityImage ? 'high' : 'low'}" width="960" height="620" />
           <span class="project-priority">${project.priority}</span>
           <span class="project-category">${project.category}</span>
         </div>
@@ -90,7 +101,7 @@ function projectsPage() {
         </div>
         <div class="page-grid">
           <div class="projects-grid" data-projects-grid>
-            ${completedProjects.map(projectCard).join('')}
+            ${completedProjects.map((project, index) => projectCard(project, index)).join('')}
           </div>
         </div>
       </section>
@@ -194,7 +205,8 @@ function projectDetailPage(slug) {
     'Reporting and documentation sections support follow-up and business trust.',
   ];
   const projectHeroVideo = project.heroVideo || project.visualVideo || '';
-  const projectVideoPoster = project.videoPoster || project.image || '';
+  const projectVideoPoster = optimizedProjectImage(project.videoPoster || project.image || '');
+  const projectMainImage = optimizedProjectImage(project.image);
   const trustNotes = project.trustNotes || [
     'Shows practical thinking from UI to workflow and business output.',
     'Project page will be updated with real screenshots and source structure after analysis.',
@@ -223,10 +235,10 @@ function projectDetailPage(slug) {
           </div>
           <figure class="project-detail-main-image ${project.imageFit === 'contain' ? 'project-image-contain' : ''} ${projectHeroVideo ? 'project-detail-video-card' : ''} glass reveal">
             ${projectHeroVideo ? `
-            <video class="project-detail-video" autoplay muted loop playsinline preload="metadata" poster="${projectVideoPoster}">
-              <source src="${projectHeroVideo}" type="video/mp4" />
+            <video class="project-detail-video lazy-video" autoplay muted loop playsinline preload="none" poster="${projectVideoPoster}" data-lazy-video aria-label="${project.title} demo video">
+              <source data-src="${optimizedProjectVideo(projectHeroVideo)}" type="video/mp4" />
               Your browser does not support the video tag.
-            </video>` : `<img src="${project.image}" alt="${project.title} main project preview" loading="lazy" />`}
+            </video>` : `<img src="${projectMainImage}" alt="${project.title} main project preview" loading="eager" decoding="async" fetchpriority="high" width="1280" height="780" />`}
             <figcaption>${projectHeroVideo ? 'Private demo video' : project.category}</figcaption>
           </figure>
         </div>
@@ -321,8 +333,8 @@ function projectDetailPage(slug) {
           <div class="project-gallery-full glass reveal ${project.visualVideo ? 'project-video-gallery-full' : ''}">
             ${project.visualVideo ? `
               <figure class="project-visual-video-card">
-                <video class="project-visual-video" autoplay muted loop playsinline preload="metadata" poster="${project.videoPoster || project.image}">
-                  <source src="${project.visualVideo}" type="video/mp4" />
+                <video class="project-visual-video lazy-video" autoplay muted loop playsinline preload="none" poster="${optimizedProjectImage(project.videoPoster || project.image)}" data-lazy-video aria-label="${project.title} visual demo video">
+                  <source data-src="${optimizedProjectVideo(project.visualVideo)}" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <figcaption>${visualStructure[0] || 'Project demo video'}</figcaption>
@@ -331,7 +343,7 @@ function projectDetailPage(slug) {
             <div class="project-gallery-grid project-gallery-grid-large ${galleryImages.length === 1 ? 'project-gallery-single' : ''} ${galleryImages.length === 2 ? 'project-gallery-two' : ''}">
               ${galleryImages.map((image, index) => `
                 <figure>
-                  <img src="${image}" alt="${project.title} visual ${index + 1}" loading="lazy" />
+                  <img src="${optimizedProjectImage(image)}" alt="${project.title} visual ${index + 1}" loading="lazy" decoding="async" fetchpriority="low" width="1280" height="780" />
                   <figcaption>${visualStructure[index] || `Project screen ${index + 1}`}</figcaption>
                 </figure>`).join('')}
             </div>`}

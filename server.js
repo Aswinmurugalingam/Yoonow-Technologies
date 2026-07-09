@@ -37,8 +37,18 @@ app.use(express.static(path.join(__dirname, 'public'), {
   extensions: ['html'],
   maxAge: process.env.NODE_ENV === 'production' ? '1d' : 0,
   setHeaders: (res, filePath) => {
-    if (/assets[\\/]js[\\/]main\.js$/.test(filePath)) {
+    if (/assets[\\/]js[\\/]main\.js$/.test(filePath) || /assets[\\/]css[\\/]styles\.css$/.test(filePath)) {
       res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      return;
+    }
+
+    if (/assets[\\/]images[\\/]projects[\\/].+\.webp$/.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      return;
+    }
+
+    if (/assets[\\/](images|video)[\\/]/.test(filePath)) {
+      res.setHeader('Cache-Control', 'public, max-age=604800');
     }
   },
 }));

@@ -62,19 +62,19 @@ function servicesPage() {
           })}
           <div class="field-gallery">
             <figure class="field-card reveal">
-              <img src="/assets/images/laptop-support.jpg" alt="Technician servicing an office laptop" loading="lazy" />
+              <img src="/assets/images/laptop-support.jpg" alt="Technician servicing an office laptop" loading="lazy" decoding="async" fetchpriority="low" />
               <figcaption class="field-caption"><strong>Computer Service</strong><span>Diagnostics & repair</span></figcaption>
             </figure>
             <figure class="field-card reveal">
-              <img src="/assets/images/server-network.jpg" alt="Server and network rack maintenance" loading="lazy" />
+              <img src="/assets/images/server-network.jpg" alt="Server and network rack maintenance" loading="lazy" decoding="async" fetchpriority="low" />
               <figcaption class="field-caption"><strong>Server & Network</strong><span>Infrastructure setup</span></figcaption>
             </figure>
             <figure class="field-card reveal">
-              <img src="/assets/images/security-camera.jpg" alt="CCTV security camera installation" loading="lazy" />
+              <img src="/assets/images/security-camera.jpg" alt="CCTV security camera installation" loading="lazy" decoding="async" fetchpriority="low" />
               <figcaption class="field-caption"><strong>CCTV & Security</strong><span>Camera installation</span></figcaption>
             </figure>
             <figure class="field-card reveal">
-              <img src="/assets/images/mobile-app.jpg" alt="Mobile app development on a smartphone" loading="lazy" />
+              <img src="/assets/images/mobile-app.jpg" alt="Mobile app development on a smartphone" loading="lazy" decoding="async" fetchpriority="low" />
               <figcaption class="field-caption"><strong>Web & Mobile</strong><span>App development</span></figcaption>
             </figure>
           </div>

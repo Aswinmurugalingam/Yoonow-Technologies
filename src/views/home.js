@@ -340,7 +340,7 @@ function homePage() {
           </div>
         </div>
         <figure class="video-panel showcase-video-card glass reveal" data-tilt>
-          <video class="clean-showcase-video" autoplay muted loop playsinline preload="metadata" poster="${video.poster}" aria-label="Yoonow Technologies service showcase video">
+          <video class="clean-showcase-video" autoplay muted loop playsinline preload="auto" aria-label="Yoonow Technologies service showcase video">
             <source src="${video.src}" type="video/mp4" />
             Your browser does not support embedded video.
           </video>

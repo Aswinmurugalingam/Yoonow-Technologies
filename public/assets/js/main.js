@@ -234,6 +234,55 @@
     }, 2600);
   }
 
+  var lazyVideos = document.querySelectorAll('video[data-lazy-video]');
+
+  function loadLazyVideo(video) {
+    if (!video || video.dataset.lazyLoaded === 'true') return;
+
+    video.querySelectorAll('source[data-src]').forEach(function (source) {
+      source.src = source.getAttribute('data-src');
+      source.removeAttribute('data-src');
+    });
+
+    video.dataset.lazyLoaded = 'true';
+    video.classList.add('is-loading');
+    video.load();
+
+    var playVideo = function () {
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {});
+      }
+    };
+
+    video.addEventListener('loadeddata', function () {
+      video.classList.remove('is-loading');
+      video.classList.add('is-ready');
+      playVideo();
+    }, { once: true });
+
+    if (video.autoplay) playVideo();
+  }
+
+  if (lazyVideos.length) {
+    if (!('IntersectionObserver' in window)) {
+      lazyVideos.forEach(loadLazyVideo);
+    } else {
+      var videoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            loadLazyVideo(entry.target);
+            videoObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '420px 0px' });
+
+      lazyVideos.forEach(function (video) {
+        videoObserver.observe(video);
+      });
+    }
+  }
+
   var supportsHover = window.matchMedia('(hover: hover)').matches;
   if (supportsHover) {
     document.querySelectorAll('[data-tilt]').forEach(function (el) {
