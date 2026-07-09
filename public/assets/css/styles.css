@@ -5798,3 +5798,49 @@ main {
   opacity: .72;
   cursor: wait;
 }
+
+
+/* Contact and Quote file upload support */
+.lead-form .file-upload-field {
+  gap: 9px !important;
+}
+.lead-form input[type="file"] {
+  cursor: pointer;
+  padding: 12px 14px !important;
+  border-style: dashed !important;
+  background:
+    linear-gradient(135deg, rgba(61, 139, 255, .10), rgba(255, 107, 44, .07)),
+    rgba(5, 7, 12, .58) !important;
+}
+.lead-form input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  border: 1px solid rgba(61, 139, 255, .34);
+  border-radius: 999px;
+  background: rgba(61, 139, 255, .16);
+  color: var(--text);
+  padding: 8px 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.file-upload-note {
+  display: block;
+  color: var(--muted-2);
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.lead-form textarea.requirement-textarea {
+  min-height: 118px !important;
+  max-height: 180px;
+  resize: vertical;
+}
+@media (max-width: 640px) {
+  .lead-form textarea.requirement-textarea {
+    min-height: 108px !important;
+  }
+  .lead-form input[type="file"]::file-selector-button {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}

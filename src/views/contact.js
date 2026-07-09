@@ -63,7 +63,7 @@ function contactPage() {
             </div>
           </div>
 
-          <form class="lead-form contact-form-panel glass reveal" data-lead-form>
+          <form class="lead-form contact-form-panel glass reveal" data-lead-form enctype="multipart/form-data">
             <input type="hidden" name="formType" value="Contact Enquiry" />
             <input type="text" name="website" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true" />
             <div class="form-heading-row">
@@ -86,7 +86,11 @@ function contactPage() {
               <label>Service Required<select name="service" required><option value="">Select service</option><option>Urgent IT Support</option><option>Managed IT / AMC</option><option>Computer / Laptop Service</option><option>Network / Wi‑Fi / Firewall</option><option>CCTV / NAS / Backup</option><option>Website Development</option><option>Mobile App Development</option><option>Custom Software Development</option><option>Software Licensing</option><option>Other Requirement</option></select></label>
               <label>Urgency<select name="urgency"><option>Normal Enquiry</option><option>Need Within This Week</option><option>Urgent Support</option><option>Emergency Office Issue</option></select></label>
             </div>
-            <label>Requirement<textarea name="message" rows="6" placeholder="Tell us about the issue, setup, website/app idea, software licensing, business launch setup, or support requirement..." required></textarea></label>
+            <label class="file-upload-field">Attach Files
+              <input type="file" name="attachments" multiple />
+              <span class="file-upload-note">Optional: images, videos, PDF, documents, ZIP files or any supporting file.</span>
+            </label>
+            <label>Requirement<textarea name="message" rows="4" class="requirement-textarea" placeholder="Tell us about the issue, setup, website/app idea, software licensing, business launch setup, or support requirement..." required></textarea></label>
             <button class="btn btn-primary" type="submit">Send Message ${icon('arrow')}</button>
             <p class="form-note" aria-live="polite"></p>
           </form>

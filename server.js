@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const multer = require('multer');
 
 const { homePage } = require('./src/views/home');
 const { aboutPage } = require('./src/views/about');
@@ -11,6 +12,16 @@ const { contactPage } = require('./src/views/contact');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const leadHits = new Map();
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    files: 8,
+    fileSize: 15 * 1024 * 1024,
+    fields: 30,
+    fieldSize: 32 * 1024,
+  },
+});
 
 app.use(express.json({ limit: '32kb' }));
 app.use(express.urlencoded({ extended: false, limit: '32kb' }));
@@ -54,6 +65,25 @@ function escapeHtml(value) {
     .replace(/'/g, '&#039;');
 }
 
+
+function formatFileSize(bytes) {
+  const size = Number(bytes || 0);
+  if (size >= 1024 * 1024) return `${(size / (1024 * 1024)).toFixed(2)} MB`;
+  if (size >= 1024) return `${(size / 1024).toFixed(1)} KB`;
+  return `${size} B`;
+}
+
+function safeFileName(fileName) {
+  return cleanValue(fileName, 180).replace(/[\\/:*?"<>|]/g, '-');
+}
+
+function buildAttachmentSummary(files = []) {
+  return files
+    .filter(Boolean)
+    .map((file) => `${safeFileName(file.originalname)} (${formatFileSize(file.size)})`)
+    .join('\n');
+}
+
 function buildLeadFields(payload) {
   return [
     ['Form Type', payload.formType],
@@ -69,12 +99,18 @@ function buildLeadFields(payload) {
   ].filter(([, value]) => value);
 }
 
-function buildLeadEmail(payload) {
+function buildLeadEmail(payload, files = []) {
   const fields = buildLeadFields(payload);
-  return fields.map(([label, value]) => `${label}: ${value}`).join('\n');
+  const bodyLines = fields.map(([label, value]) => `${label}: ${value}`);
+  const attachmentSummary = buildAttachmentSummary(files);
+  if (attachmentSummary) {
+    bodyLines.push(`Attached Files:
+${attachmentSummary}`);
+  }
+  return bodyLines.join('\n');
 }
 
-function buildLeadEmailHtml(payload) {
+function buildLeadEmailHtml(payload, files = []) {
   const fields = buildLeadFields(payload);
   const submittedAt = new Date().toLocaleString('en-IN', {
     timeZone: 'Asia/Kolkata',
@@ -95,6 +131,26 @@ function buildLeadEmailHtml(payload) {
       <td style="padding:14px 16px;border-bottom:1px solid #1e365f;color:#e8f0ff;font:600 15px Arial,Helvetica,sans-serif;line-height:1.55;vertical-align:top;">${escapeHtml(value).replace(/\n/g, '<br>')}</td>
     </tr>
   `).join('');
+
+  const attachmentRows = files.length ? files.map((file) => `
+    <tr>
+      <td style="padding:13px 16px;border-bottom:1px solid #1e365f;color:#dbe8ff;font:700 14px Arial,Helvetica,sans-serif;line-height:1.5;vertical-align:top;">${escapeHtml(safeFileName(file.originalname))}</td>
+      <td align="right" style="padding:13px 16px;border-bottom:1px solid #1e365f;color:#93a4bd;font:700 13px Arial,Helvetica,sans-serif;white-space:nowrap;vertical-align:top;">${escapeHtml(formatFileSize(file.size))}</td>
+    </tr>
+  `).join('') : '';
+
+  const attachmentBlock = files.length ? `
+            <tr>
+              <td style="padding:0 24px 20px;background:#08111f;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #1e365f;border-radius:18px;overflow:hidden;background:#0b1424;">
+                  <tr>
+                    <td colspan="2" style="padding:14px 16px;border-bottom:1px solid #1e365f;color:#7db3ff;font:800 12px Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:rgba(37,99,235,.08);">Attached Files</td>
+                  </tr>
+                  ${attachmentRows}
+                </table>
+              </td>
+            </tr>
+  ` : '';
 
   return `<!doctype html>
 <html>
@@ -140,6 +196,7 @@ function buildLeadEmailHtml(payload) {
                 </table>
               </td>
             </tr>
+            ${attachmentBlock}
             <tr>
               <td style="padding:0 24px 26px;background:#08111f;">
                 <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
@@ -183,7 +240,7 @@ function buildLeadEmailHtml(payload) {
 </html>`;
 }
 
-async function sendLeadEmail(payload) {
+async function sendLeadEmail(payload, files = []) {
   const smtpHost = process.env.SMTP_HOST;
   const smtpPort = Number(process.env.SMTP_PORT || 465);
   const smtpUser = process.env.SMTP_USER;
@@ -207,7 +264,12 @@ async function sendLeadEmail(payload) {
 
   const formType = payload.formType || 'Website Enquiry';
   const subject = `Yoonow Technologies - ${formType}`;
-  const body = `${buildLeadEmail(payload)}\n\nSubmitted from: www.yoonowtech.com\nSubmitted at: ${new Date().toISOString()}`;
+  const body = `${buildLeadEmail(payload, files)}\n\nSubmitted from: www.yoonowtech.com\nSubmitted at: ${new Date().toISOString()}`;
+  const attachments = files.map((file) => ({
+    filename: safeFileName(file.originalname),
+    content: file.buffer,
+    contentType: file.mimetype || 'application/octet-stream',
+  }));
 
   await transporter.sendMail({
     from: `Yoonow Website <${smtpUser}>`,
@@ -215,45 +277,59 @@ async function sendLeadEmail(payload) {
     replyTo: payload.email || smtpUser,
     subject,
     text: body,
-    html: buildLeadEmailHtml(payload),
+    html: buildLeadEmailHtml(payload, files),
+    attachments,
   });
 }
 
-app.post('/api/leads', async (req, res) => {
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
-  if (isRateLimited(String(ip))) {
-    return res.status(429).json({ ok: false, message: 'Too many submissions. Please try again later.' });
-  }
+app.post('/api/leads', (req, res) => {
+  upload.array('attachments', 8)(req, res, async (uploadError) => {
+    if (uploadError) {
+      const isSizeError = uploadError.code === 'LIMIT_FILE_SIZE' || uploadError.code === 'LIMIT_FILE_COUNT';
+      return res.status(isSizeError ? 413 : 400).json({
+        ok: false,
+        message: isSizeError
+          ? 'Attached files are too large. Please upload fewer or smaller files and try again.'
+          : 'Unable to read the uploaded files. Please try again.',
+      });
+    }
 
-  const payload = {
-    formType: cleanValue(req.body.formType, 80),
-    name: cleanValue(req.body.name || req.body.company, 160),
-    company: cleanValue(req.body.company, 180),
-    phone: cleanValue(req.body.phone, 80),
-    email: cleanValue(req.body.email, 180),
-    location: cleanValue(req.body.location, 180),
-    service: cleanValue(req.body.service, 180),
-    budget: cleanValue(req.body.budget, 120),
-    urgency: cleanValue(req.body.urgency, 120),
-    message: cleanValue(req.body.message, 2500),
-    website: cleanValue(req.body.website, 80),
-  };
+    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+    if (isRateLimited(String(ip))) {
+      return res.status(429).json({ ok: false, message: 'Too many submissions. Please try again later.' });
+    }
 
-  if (payload.website) {
-    return res.json({ ok: true });
-  }
+    const uploadedFiles = Array.isArray(req.files) ? req.files : [];
+    const payload = {
+      formType: cleanValue(req.body.formType, 80),
+      name: cleanValue(req.body.name || req.body.company, 160),
+      company: cleanValue(req.body.company, 180),
+      phone: cleanValue(req.body.phone, 80),
+      email: cleanValue(req.body.email, 180),
+      location: cleanValue(req.body.location, 180),
+      service: cleanValue(req.body.service, 180),
+      budget: cleanValue(req.body.budget, 120),
+      urgency: cleanValue(req.body.urgency, 120),
+      message: cleanValue(req.body.message, 2500),
+      website: cleanValue(req.body.website, 80),
+    };
 
-  if (!payload.phone || !payload.email || !payload.message) {
-    return res.status(400).json({ ok: false, message: 'Please fill phone, email and requirement details.' });
-  }
+    if (payload.website) {
+      return res.json({ ok: true });
+    }
 
-  try {
-    await sendLeadEmail(payload);
-    return res.json({ ok: true });
-  } catch (error) {
-    console.error('Lead email failed:', error.message);
-    return res.status(503).json({ ok: false, message: 'Email service is not configured yet. Please use WhatsApp or email directly.' });
-  }
+    if (!payload.phone || !payload.email || !payload.message) {
+      return res.status(400).json({ ok: false, message: 'Please fill phone, email and requirement details.' });
+    }
+
+    try {
+      await sendLeadEmail(payload, uploadedFiles);
+      return res.json({ ok: true });
+    } catch (error) {
+      console.error('Lead email failed:', error.message);
+      return res.status(503).json({ ok: false, message: 'Email service is not configured yet. Please use WhatsApp or email directly.' });
+    }
+  });
 });
 
 app.get('/', (_req, res) => res.send(homePage()));

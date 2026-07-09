@@ -78,7 +78,7 @@ function quotePage() {
             </div>
           </div>
 
-          <form class="lead-form quote-form-panel glass reveal" data-lead-form>
+          <form class="lead-form quote-form-panel glass reveal" data-lead-form enctype="multipart/form-data">
             <input type="hidden" name="formType" value="Quote Request" />
             <input type="text" name="website" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true" />
             <div class="form-heading-row">
@@ -102,7 +102,11 @@ function quotePage() {
               <label>Budget Range<select name="budget"><option>Not Decided Yet</option><option>Small Fix / Support</option><option>Basic Website / Setup</option><option>Medium Business Project</option><option>Custom Software / Full Setup</option></select></label>
               <label>Timeline / Urgency<select name="urgency"><option>Normal Enquiry</option><option>Need Within This Week</option><option>Need This Month</option><option>Urgent IT Support</option></select></label>
             </div>
-            <label>Requirement Details<textarea name="message" rows="6" placeholder="Example: 8 computers, 2 printers, Wi‑Fi setup, CCTV remote viewing, website or app requirement..." required></textarea></label>
+            <label class="file-upload-field">Attach Files
+              <input type="file" name="attachments" multiple />
+              <span class="file-upload-note">Optional: images, videos, PDF, documents, ZIP files or any supporting file.</span>
+            </label>
+            <label>Requirement Details<textarea name="message" rows="4" class="requirement-textarea" placeholder="Example: 8 computers, 2 printers, Wi‑Fi setup, CCTV remote viewing, website or app requirement..." required></textarea></label>
             <button class="btn btn-primary" type="submit">Submit Requirement ${icon('arrow')}</button>
             <p class="form-note" aria-live="polite"></p>
           </form>

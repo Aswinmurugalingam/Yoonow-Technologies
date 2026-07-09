@@ -273,12 +273,9 @@
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       var formData = new FormData(form);
-      var payload = {};
-      formData.forEach(function (value, key) {
-        payload[key] = typeof value === 'string' ? value.trim() : value;
-      });
+      var honeypot = String(formData.get('website') || '').trim();
 
-      if (payload.website) {
+      if (honeypot) {
         form.reset();
         return;
       }
@@ -287,12 +284,11 @@
         submitButton.disabled = true;
         submitButton.innerHTML = 'Sending...';
       }
-      showFormMessage('Sending your enquiry to Yoonow Technologies...', false);
+      showFormMessage('Sending your enquiry and attachments to Yoonow Technologies...', false);
 
       fetch('/api/leads', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: formData
       })
         .then(function (response) {
           return response.json().catch(function () { return {}; }).then(function (data) {
@@ -303,11 +299,11 @@
           });
         })
         .then(function () {
-          showFormMessage('Thank you. Your enquiry has been sent to info@yoonowtech.com. We will contact you soon.', false);
+          showFormMessage('Thank you. Your enquiry and attached files have been sent to info@yoonowtech.com. We will contact you soon.', false);
           form.reset();
         })
-        .catch(function () {
-          showFormMessage('Form submission is not available right now. Please contact us on WhatsApp at +91 86105 07446 or email info@yoonowtech.com.', true);
+        .catch(function (error) {
+          showFormMessage(error.message || 'Form submission is not available right now. Please contact us on WhatsApp at +91 86105 07446 or email info@yoonowtech.com.', true);
         })
         .finally(function () {
           if (submitButton) {
