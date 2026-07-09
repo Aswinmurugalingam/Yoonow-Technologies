@@ -115,7 +115,14 @@ function renderPage({ title, description, path = '/', body }) {
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="${site.url}${path === '/' ? '' : path}" />
   <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-  <link rel="stylesheet" href="/assets/css/styles.css?v=legal-page-redesign-v9" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8M54BGB32"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W8M54BGB32');
+  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=ga4-launch-v10" />
   <script>
     (function () {
       try {
@@ -183,7 +190,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=legal-page-redesign-v9" defer></script>
+  <script src="/assets/js/main.js?v=ga4-launch-v10" defer></script>
 </body>
 </html>`;
 }

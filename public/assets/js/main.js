@@ -401,6 +401,22 @@
     }
   }
 
+  function trackYoonowLead(form, attachmentCount) {
+    if (typeof window.gtag !== 'function') return;
+
+    var formTypeField = form ? form.querySelector('[name="formType"]') : null;
+    var formType = formTypeField ? String(formTypeField.value || 'Website Enquiry') : 'Website Enquiry';
+    var normalizedType = formType.toLowerCase().indexOf('quote') !== -1 ? 'quote_request' : 'contact_enquiry';
+
+    window.gtag('event', 'generate_lead', {
+      event_category: 'lead',
+      form_type: normalizedType,
+      form_label: formType,
+      page_path: window.location.pathname,
+      attachment_count: Number(attachmentCount || 0)
+    });
+  }
+
   document.querySelectorAll('[data-lead-form]').forEach(function (form) {
     var note = form.querySelector('.form-note');
     var submitButton = form.querySelector('button[type="submit"]');
@@ -519,6 +535,7 @@
             showFormMessage('Your message was sent, but the file upload count did not match. Please contact us on WhatsApp and share the file if needed.', true);
             return;
           }
+          trackYoonowLead(form, selectedFiles.length);
           showFormMessage(selectedFiles.length
             ? 'Thank you. Your enquiry and attached file(s) have been sent to info@yoonowtech.com.'
             : 'Thank you. Your enquiry has been sent to info@yoonowtech.com. We will contact you soon.', false);
