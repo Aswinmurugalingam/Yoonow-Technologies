@@ -45,8 +45,17 @@ function isRateLimited(ip) {
   return false;
 }
 
-function buildLeadEmail(payload) {
-  const fields = [
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function buildLeadFields(payload) {
+  return [
     ['Form Type', payload.formType],
     ['Name', payload.name],
     ['Company / Name', payload.company],
@@ -58,8 +67,120 @@ function buildLeadEmail(payload) {
     ['Timeline / Urgency', payload.urgency],
     ['Requirement', payload.message],
   ].filter(([, value]) => value);
+}
 
+function buildLeadEmail(payload) {
+  const fields = buildLeadFields(payload);
   return fields.map(([label, value]) => `${label}: ${value}`).join('\n');
+}
+
+function buildLeadEmailHtml(payload) {
+  const fields = buildLeadFields(payload);
+  const submittedAt = new Date().toLocaleString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+  const formType = payload.formType || 'Website Enquiry';
+  const service = payload.service || 'General Enquiry';
+  const phoneDigits = String(payload.phone || '').replace(/\D/g, '');
+  const waPhone = phoneDigits.startsWith('91') ? phoneDigits : `91${phoneDigits}`;
+  const whatsappText = encodeURIComponent(`Hello ${payload.name || ''}, thank you for contacting Yoonow Technologies regarding ${service}.`);
+  const whatsappLink = phoneDigits ? `https://wa.me/${waPhone}?text=${whatsappText}` : 'https://wa.me/918610507446';
+  const emailLink = payload.email ? `mailto:${encodeURIComponent(payload.email)}` : 'mailto:info@yoonowtech.com';
+
+  const rows = fields.map(([label, value]) => `
+    <tr>
+      <td style="padding:14px 16px;border-bottom:1px solid #1e365f;color:#93a4bd;font:600 13px Arial,Helvetica,sans-serif;letter-spacing:.02em;text-transform:uppercase;width:35%;vertical-align:top;">${escapeHtml(label)}</td>
+      <td style="padding:14px 16px;border-bottom:1px solid #1e365f;color:#e8f0ff;font:600 15px Arial,Helvetica,sans-serif;line-height:1.55;vertical-align:top;">${escapeHtml(value).replace(/\n/g, '<br>')}</td>
+    </tr>
+  `).join('');
+
+  return `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${escapeHtml(formType)} - Yoonow Technologies</title>
+  </head>
+  <body style="margin:0;padding:0;background:#050a14;font-family:Arial,Helvetica,sans-serif;color:#e8f0ff;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#050a14;padding:28px 14px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:720px;background:#08111f;border:1px solid #1c355f;border-radius:22px;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.34);">
+            <tr>
+              <td style="padding:0;background:linear-gradient(135deg,#0a1630 0%,#0d2348 48%,#1b2f56 100%);">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="padding:28px 28px 22px;">
+                      <div style="display:inline-block;padding:8px 13px;border:1px solid rgba(77,148,255,.45);border-radius:999px;background:rgba(42,103,255,.12);color:#7db3ff;font:700 12px Arial,Helvetica,sans-serif;letter-spacing:.16em;text-transform:uppercase;">Yoonow Technologies</div>
+                      <h1 style="margin:18px 0 8px;color:#ffffff;font:800 28px Arial,Helvetica,sans-serif;line-height:1.15;">New ${escapeHtml(formType)}</h1>
+                      <p style="margin:0;color:#b8c8de;font:500 15px Arial,Helvetica,sans-serif;line-height:1.6;">A new enquiry has been submitted from <strong style="color:#ffffff;">www.yoonowtech.com</strong>. Review the requirement and contact the client using phone, WhatsApp, or email.</p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px 24px 8px;background:#08111f;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="padding:16px;border:1px solid #203a67;border-radius:18px;background:linear-gradient(145deg,rgba(37,99,235,.12),rgba(249,115,22,.08));">
+                      <div style="color:#94a8c7;font:700 12px Arial,Helvetica,sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px;">Requested Service</div>
+                      <div style="color:#ffffff;font:800 20px Arial,Helvetica,sans-serif;line-height:1.35;">${escapeHtml(service)}</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 24px 20px;background:#08111f;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #1e365f;border-radius:18px;overflow:hidden;background:#0b1424;">
+                  ${rows}
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 24px 26px;background:#08111f;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="padding:16px;border:1px solid #203a67;border-radius:18px;background:#0b1424;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td style="padding:4px 0;color:#93a4bd;font:600 13px Arial,Helvetica,sans-serif;">Submitted from</td>
+                          <td align="right" style="padding:4px 0;color:#e8f0ff;font:700 13px Arial,Helvetica,sans-serif;">www.yoonowtech.com</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:4px 0;color:#93a4bd;font:600 13px Arial,Helvetica,sans-serif;">Submitted at</td>
+                          <td align="right" style="padding:4px 0;color:#e8f0ff;font:700 13px Arial,Helvetica,sans-serif;">${escapeHtml(submittedAt)} IST</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 24px 28px;background:#08111f;">
+                <table role="presentation" cellspacing="0" cellpadding="0" style="width:100%;">
+                  <tr>
+                    <td align="center" style="padding:0 0 10px;">
+                      <a href="${escapeHtml(whatsappLink)}" style="display:inline-block;margin:4px;padding:13px 18px;border-radius:999px;background:#2563eb;color:#ffffff;text-decoration:none;font:800 14px Arial,Helvetica,sans-serif;">Reply on WhatsApp</a>
+                      <a href="${escapeHtml(emailLink)}" style="display:inline-block;margin:4px;padding:13px 18px;border-radius:999px;background:#f97316;color:#ffffff;text-decoration:none;font:800 14px Arial,Helvetica,sans-serif;">Reply by Email</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="color:#7f91ab;font:500 12px Arial,Helvetica,sans-serif;line-height:1.5;">Yoonow Technologies · Nagercoil · India · UAE · Dubai · Remote Support</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
 }
 
 async function sendLeadEmail(payload) {
