@@ -78,7 +78,7 @@ function quotePage() {
             </div>
           </div>
 
-          <form class="lead-form quote-form-panel glass reveal" data-lead-form enctype="multipart/form-data">
+          <form class="lead-form quote-form-panel glass reveal" data-lead-form method="post" action="/api/leads" enctype="multipart/form-data">
             <input type="hidden" name="formType" value="Quote Request" />
             <input type="text" name="website" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true" />
             <div class="form-heading-row">
@@ -104,7 +104,7 @@ function quotePage() {
             </div>
             <label class="file-upload-field">Attach Files
               <input type="file" name="attachments" multiple />
-              <span class="file-upload-note">Optional: images, videos, PDF, documents, ZIP files or any supporting file.</span>
+              <span class="file-upload-note">Optional: images, PDF, documents or small supporting files. For large videos, paste a Drive/OneDrive link in the requirement box.</span>
             </label>
             <label>Requirement Details<textarea name="message" rows="4" class="requirement-textarea" placeholder="Example: 8 computers, 2 printers, Wi‑Fi setup, CCTV remote viewing, website or app requirement..." required></textarea></label>
             <button class="btn btn-primary" type="submit">Submit Requirement ${icon('arrow')}</button>

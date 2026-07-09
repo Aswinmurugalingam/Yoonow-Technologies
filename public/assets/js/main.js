@@ -262,6 +262,13 @@
     var note = form.querySelector('.form-note');
     var submitButton = form.querySelector('button[type="submit"]');
     var originalButtonText = submitButton ? submitButton.innerHTML : '';
+    var maxUploadBytes = 4 * 1024 * 1024;
+
+    function formatClientFileSize(bytes) {
+      if (bytes >= 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+      if (bytes >= 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return bytes + ' B';
+    }
 
     function showFormMessage(message, isError) {
       if (!note) return;
@@ -270,24 +277,44 @@
       note.textContent = message;
     }
 
+    function getSelectedFiles() {
+      var files = [];
+      form.querySelectorAll('input[type="file"]').forEach(function (field) {
+        Array.prototype.forEach.call(field.files || [], function (file) {
+          if (file && file.size > 0) {
+            files.push({ field: field, file: file });
+          }
+        });
+      });
+      return files;
+    }
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      var formData = new FormData();
-      Array.prototype.forEach.call(form.elements, function (field) {
-        if (!field || !field.name || field.disabled) return;
 
-        if (field.type === 'file') {
-          Array.prototype.forEach.call(field.files || [], function (file) {
-            if (file && file.size > 0) {
-              formData.append(field.name || 'attachments', file, file.name);
-            }
-          });
-          return;
-        }
+      var selectedFiles = getSelectedFiles();
+      var totalUploadSize = selectedFiles.reduce(function (sum, item) { return sum + item.file.size; }, 0);
 
-        if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) return;
-        formData.append(field.name, field.value || '');
+      if (totalUploadSize > maxUploadBytes) {
+        showFormMessage('Attached files are too large for email upload. Please keep total upload size under 4 MB or share a Google Drive / OneDrive link in the requirement box.', true);
+        return;
+      }
+
+      var formData = new FormData(form);
+      var attachmentNames = [];
+
+      form.querySelectorAll('input[type="file"]').forEach(function (field) {
+        if (field.name) formData.delete(field.name);
       });
+
+      selectedFiles.forEach(function (item) {
+        var uploadName = item.field.name || 'attachments';
+        formData.append(uploadName, item.file, item.file.name);
+        attachmentNames.push(item.file.name + ' (' + formatClientFileSize(item.file.size) + ')');
+      });
+
+      formData.set('attachmentCount', String(selectedFiles.length));
+      formData.set('attachmentNames', attachmentNames.join(', '));
 
       var honeypot = String(formData.get('website') || '').trim();
 
@@ -300,11 +327,15 @@
         submitButton.disabled = true;
         submitButton.innerHTML = 'Sending...';
       }
-      showFormMessage('Sending your enquiry and attachments to Yoonow Technologies...', false);
+
+      showFormMessage(selectedFiles.length
+        ? 'Sending your enquiry with ' + selectedFiles.length + ' attached file(s) to Yoonow Technologies...'
+        : 'Sending your enquiry to Yoonow Technologies...', false);
 
       fetch('/api/leads', {
         method: 'POST',
-        body: formData
+        body: formData,
+        cache: 'no-store'
       })
         .then(function (response) {
           return response.json().catch(function () { return {}; }).then(function (data) {
@@ -314,8 +345,15 @@
             return data;
           });
         })
-        .then(function () {
-          showFormMessage('Thank you. Your enquiry and attached files have been sent to info@yoonowtech.com. We will contact you soon.', false);
+        .then(function (data) {
+          var receivedCount = Number(data.attachmentCount || 0);
+          if (selectedFiles.length && receivedCount !== selectedFiles.length) {
+            showFormMessage('Your message was sent, but the file upload count did not match. Please contact us on WhatsApp and share the file if needed.', true);
+            return;
+          }
+          showFormMessage(selectedFiles.length
+            ? 'Thank you. Your enquiry and attached file(s) have been sent to info@yoonowtech.com.'
+            : 'Thank you. Your enquiry has been sent to info@yoonowtech.com. We will contact you soon.', false);
           form.reset();
         })
         .catch(function (error) {

@@ -183,7 +183,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js?v=attachment-v3" defer></script>
 </body>
 </html>`;
 }

@@ -63,7 +63,7 @@ function contactPage() {
             </div>
           </div>
 
-          <form class="lead-form contact-form-panel glass reveal" data-lead-form enctype="multipart/form-data">
+          <form class="lead-form contact-form-panel glass reveal" data-lead-form method="post" action="/api/leads" enctype="multipart/form-data">
             <input type="hidden" name="formType" value="Contact Enquiry" />
             <input type="text" name="website" tabindex="-1" autocomplete="off" class="form-honeypot" aria-hidden="true" />
             <div class="form-heading-row">
@@ -88,7 +88,7 @@ function contactPage() {
             </div>
             <label class="file-upload-field">Attach Files
               <input type="file" name="attachments" multiple />
-              <span class="file-upload-note">Optional: images, videos, PDF, documents, ZIP files or any supporting file.</span>
+              <span class="file-upload-note">Optional: images, PDF, documents or small supporting files. For large videos, paste a Drive/OneDrive link in the requirement box.</span>
             </label>
             <label>Requirement<textarea name="message" rows="4" class="requirement-textarea" placeholder="Tell us about the issue, setup, website/app idea, software licensing, business launch setup, or support requirement..." required></textarea></label>
             <button class="btn btn-primary" type="submit">Send Message ${icon('arrow')}</button>

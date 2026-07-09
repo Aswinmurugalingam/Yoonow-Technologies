@@ -36,6 +36,11 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public'), {
   extensions: ['html'],
   maxAge: process.env.NODE_ENV === 'production' ? '1d' : 0,
+  setHeaders: (res, filePath) => {
+    if (/assets[\\/]js[\\/]main\.js$/.test(filePath)) {
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    }
+  },
 }));
 
 function cleanValue(value, maxLength = 1200) {
@@ -96,6 +101,7 @@ function buildLeadFields(payload) {
     ['Budget Range', payload.budget],
     ['Timeline / Urgency', payload.urgency],
     ['Requirement', payload.message],
+    ['Client Selected Files', payload.attachmentNames],
   ].filter(([, value]) => value);
 }
 
@@ -269,7 +275,7 @@ async function sendLeadEmail(payload, files = []) {
     .filter((file) => file && file.buffer && file.size > 0)
     .map((file) => ({
       filename: safeFileName(file.originalname || 'attachment'),
-      content: Buffer.from(file.buffer),
+      content: file.buffer,
       contentType: file.mimetype || 'application/octet-stream',
       contentDisposition: 'attachment',
     }));
@@ -281,6 +287,9 @@ async function sendLeadEmail(payload, files = []) {
     subject: attachments.length ? `${subject} (${attachments.length} attachment${attachments.length > 1 ? 's' : ''})` : subject,
     text: body,
     html: buildLeadEmailHtml(payload, files),
+    headers: {
+      'X-Yoonow-Attachment-Count': String(attachments.length),
+    },
   };
 
   if (attachments.length) {
@@ -321,11 +330,28 @@ app.post('/api/leads', (req, res) => {
       budget: cleanValue(req.body.budget, 120),
       urgency: cleanValue(req.body.urgency, 120),
       message: cleanValue(req.body.message, 2500),
+      attachmentCount: Number(cleanValue(req.body.attachmentCount, 20) || 0),
+      attachmentNames: cleanValue(req.body.attachmentNames, 1200),
       website: cleanValue(req.body.website, 80),
     };
 
     if (payload.website) {
       return res.json({ ok: true });
+    }
+
+    const contentType = String(req.headers['content-type'] || '');
+    if (payload.attachmentCount > 0 && !contentType.includes('multipart/form-data')) {
+      return res.status(400).json({
+        ok: false,
+        message: 'Attachment upload did not reach the server because the page used an old cached script. Please press Ctrl + F5, reopen the page, attach the file again and submit.',
+      });
+    }
+
+    if (payload.attachmentCount > 0 && uploadedFiles.length === 0) {
+      return res.status(400).json({
+        ok: false,
+        message: 'Your enquiry was received, but the selected file did not upload. Please refresh the page, select a file under 4 MB and try again.',
+      });
     }
 
     if (!payload.phone || !payload.email || !payload.message) {
@@ -334,7 +360,7 @@ app.post('/api/leads', (req, res) => {
 
     try {
       await sendLeadEmail(payload, uploadedFiles);
-      return res.json({ ok: true });
+      return res.json({ ok: true, attachmentCount: uploadedFiles.length });
     } catch (error) {
       console.error('Lead email failed:', error.message);
       return res.status(503).json({ ok: false, message: 'Email service is not configured yet. Please use WhatsApp or email directly.' });
