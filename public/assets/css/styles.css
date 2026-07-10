@@ -6637,4 +6637,82 @@ video.lazy-video.is-ready {
   }
 }
 
+
+/* === FAQ accordion and compact clarity band === */
+.faq-action-band {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+  padding: clamp(18px, 2.2vw, 28px);
+  gap: clamp(14px, 2vw, 28px);
+}
+.faq-action-band h2 {
+  font-size: clamp(22px, 2vw, 32px);
+}
+.faq-action-band p {
+  max-width: 720px;
+  margin-top: 8px;
+  line-height: 1.55;
+}
+.faq-action-band .btn {
+  min-width: 185px;
+  flex: 0 0 auto;
+}
+.faq-pro-item[open] {
+  border-color: rgba(255,107,44,.34);
+  background:
+    radial-gradient(320px 180px at 10% 0%, rgba(255,107,44,.10), transparent 58%),
+    rgba(255,255,255,.045);
+}
+@media (max-width: 920px) {
+  .faq-action-band { width: 100%; }
+}
+
 /* Local SEO service sections */
+
+
+/* === FAQ default-open cards and restored clarity band height === */
+.faq-action-band {
+  width: auto;
+  max-width: none;
+  margin-inline: 0;
+  padding-block: clamp(16px, 2vw, 26px);
+  padding-inline: clamp(24px, 3.2vw, 44px);
+  gap: clamp(18px, 3vw, 42px);
+}
+.faq-action-band h2 {
+  font-size: clamp(24px, 2.4vw, 36px);
+  margin-bottom: 0;
+}
+.faq-action-band p {
+  max-width: none;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+.faq-action-band .btn {
+  min-width: 185px;
+}
+@media (max-width: 920px) {
+  .faq-action-band {
+    width: auto;
+    padding-block: 18px;
+  }
+}
+
+/* === FAQ clarity text alignment tweak === */
+.faq-action-band > div {
+  padding-left: clamp(6px, 1vw, 14px);
+}
+.faq-action-band .section-label {
+  display: inline-flex;
+  margin-bottom: 8px;
+  transform: translateY(2px);
+}
+@media (max-width: 920px) {
+  .faq-action-band > div {
+    padding-left: 0;
+  }
+  .faq-action-band .section-label {
+    margin-bottom: 7px;
+    transform: none;
+  }
+}

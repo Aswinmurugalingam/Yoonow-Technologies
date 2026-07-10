@@ -38,9 +38,9 @@ function renderSupportItems() {
 
 function contactPage() {
   return renderPage({
-    title: `Contact ${site.name} | IT Support Nagercoil`,
+    title: `Contact ${site.name} | IT Support`,
     description:
-      `Contact ${site.name}, a software company in Nagercoil, for IT support, website development, custom software development, billing software, network setup, CCTV installation, NAS setup, computer support services, and domain email setup.`,
+      `Contact ${site.name}, a technology service provider, for IT support, website development, custom software development, billing software, network setup, CCTV installation, NAS setup, computer support services, and domain email setup.`,
     path: '/contact',
     body: `
       <section class="page-hero section-tight contact-hero">
@@ -59,7 +59,7 @@ function contactPage() {
             <p>Whether you are starting a new office, fixing an existing setup, or planning a website/app project, share the details and we will help organize the requirement professionally.</p>
 
             <div class="contact-highlight-strip">
-              <div><strong>Service Area</strong><span>Nagercoil-based service and support for business technology requirements.</span></div>
+              <div><strong>Service Area</strong><span>Flexible technology support for business requirements.</span></div>
               <div><strong>Best For</strong><span>Urgent IT support, AMC, websites, apps, CCTV, networking, and software.</span></div>
               <div><strong>Next Step</strong><span>Share issue details, photos, screenshots, file samples, or project notes.</span></div>
             </div>
@@ -133,7 +133,7 @@ function contactPage() {
           <div>
             <span class="section-label">Ready To Start</span>
             <h2>Need a quotation instead of a general message?</h2>
-            <p>For pricing, include device count, service type, number of pages/screens, cameras, licence needs, setup scope, Nagercoil location details, and expected timeline.</p>
+            <p>For pricing, include device count, service type, number of pages/screens, cameras, licence needs, setup scope, business location details, and expected timeline.</p>
           </div>
           <a class="btn btn-primary" href="/quote">Request Quote ${icon('arrow')}</a>
         </div>

@@ -608,7 +608,7 @@ function homePage() {
   `;
 
   return renderPage({
-    title: 'Yoonow Technologies | Software Company in Nagercoil',
+    title: 'Yoonow Technologies | Software, Websites, IT Support & CCTV',
     description: site.description,
     path: '/',
     body,

@@ -14,7 +14,7 @@ const quoteTypes = [
 ];
 
 const quoteSteps = [
-  { value: '01', title: 'Requirement Review', text: 'We check your message, service type, urgency, Nagercoil location details, and expected outcome.' },
+  { value: '01', title: 'Requirement Review', text: 'We check your message, service type, urgency, business location details, and expected outcome.' },
   { value: '02', title: 'Scope Confirmation', text: 'We clarify devices, pages, cameras, software features, or AMC coverage before pricing.' },
   { value: '03', title: 'Clear Proposal', text: 'You receive a practical quotation with included work, optional items, and next steps.' },
   { value: '04', title: 'Delivery Plan', text: 'Once approved, we schedule setup, documentation, handover, and support follow-up.' },
@@ -44,7 +44,7 @@ function quotePage() {
   return renderPage({
     title: `Request a Quote | ${site.name}`,
     description:
-      `${site.name} prepares clear quotations for website development, custom software development, billing software, IT support, network setup, CCTV installation, NAS setup, computer support services, domain email setup, and business automation software in Nagercoil.`,
+      `${site.name} prepares clear quotations for website development, custom software development, billing software, IT support, network setup, CCTV installation, NAS setup, computer support services, domain email setup, and business automation software for businesses.`,
     path: '/quote',
     body: `
       <section class="page-hero section-tight quote-hero">
@@ -65,7 +65,7 @@ function quotePage() {
             <div class="quote-info-list">
               <div><strong>Devices / Users</strong><span>PCs, laptops, printers, users, servers, cameras, licences, or staff count involved.</span></div>
               <div><strong>Project Type</strong><span>New setup, repair, AMC, website, app, software, automation, or upgrade work.</span></div>
-              <div><strong>Location / Urgency</strong><span>Nagercoil location details, preferred visit or support time, and urgency level.</span></div>
+              <div><strong>Location / Urgency</strong><span>business location details, preferred visit or support time, and urgency level.</span></div>
               <div><strong>Expected Result</strong><span>What should be working after the service, installation, website, app, or software is completed.</span></div>
               <div><strong>Reference Files</strong><span>Attach screenshots, photos, drawings, sample PDFs, Excel lists, or existing website links.</span></div>
               <div><strong>Approval Details</strong><span>Mention budget range, decision timeline, and who should receive the proposal.</span></div>
@@ -103,7 +103,7 @@ function quotePage() {
             </div>
             <div class="form-two-col">
               <label>Email<input type="email" name="email" placeholder="Email address" required /></label>
-              <label>Location<input type="text" name="location" placeholder="Nagercoil / Nearby client location" /></label>
+              <label>Location<input type="text" name="location" placeholder="Business location / support preference" /></label>
             </div>
             <label>Service Type<select name="service" required><option value="">Select service type</option><option>Managed IT / AMC</option><option>Office IT Setup</option><option>Computer / Laptop Service</option><option>Networking / Wi‑Fi</option><option>Cybersecurity / Firewall</option><option>CCTV Installation</option><option>Server / NAS Support</option><option>Cloud / Microsoft 365 / Google Workspace</option><option>Printer / Scanner Support</option><option>Website Development</option><option>Android Application Development</option><option>Custom Software Development</option><option>Software Licensing Support</option><option>Business Launch / Full Office Setup</option></select></label>
             <div class="form-two-col">

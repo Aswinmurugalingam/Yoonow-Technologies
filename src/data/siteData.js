@@ -4,74 +4,74 @@ const site = {
   email: 'info@yoonowtech.com',
   phone: '+91 86105 07446',
   whatsapp: 'https://wa.me/918610507446',
-  location: 'Nagercoil',
+  location: 'Global Support',
   tagline: 'IT Support · CCTV · Networking · Websites · Software',
-  description: 'Yoonow Technologies is a software company in Nagercoil providing custom software development, business website design, website development, billing software, business automation tools, IT support, computer support services, network setup, CCTV installation, NAS setup, domain email setup, AMC support, and digital technology solutions for growing businesses.',
-  serviceArea: 'Nagercoil'
+  description: 'Yoonow Technologies is a technology service provider offering custom software development, business website development, billing software, business automation tools, IT support, computer support services, network setup, CCTV installation, NAS setup, domain email setup, AMC support, and digital technology solutions for businesses everywhere.',
+  serviceArea: 'Global Support'
 };
 
 
 const seoKeywords = [
-  'software company in Nagercoil',
-  'software development company in Nagercoil',
-  'website designer in Nagercoil',
-  'web design company Nagercoil',
-  'website development Nagercoil',
-  'billing software Nagercoil',
-  'custom software development Nagercoil',
-  'business automation software Nagercoil',
-  'IT support Nagercoil',
-  'computer support services Nagercoil',
-  'network setup Nagercoil',
-  'CCTV installation Nagercoil',
-  'NAS setup Nagercoil',
-  'domain email setup Nagercoil',
-  'software company near me',
-  'website designer near me',
-  'IT support near me',
-  'billing software company near me',
-  'CCTV and network setup near me'
+  'software company for modern businesses',
+  'software development company for growing businesses',
+  'business website designer',
+  'web design company',
+  'website development services',
+  'billing software solutions',
+  'custom software development services',
+  'business automation software',
+  'IT support services',
+  'computer support services',
+  'network setup services',
+  'CCTV installation services',
+  'NAS setup services',
+  'domain email setup services',
+  'software company for businesses',
+  'website designer for businesses',
+  'IT support for businesses',
+  'billing software company for businesses',
+  'CCTV and network setup services'
 ];
 
 const localSeoServices = [
   {
-    title: 'Software Company in Nagercoil',
-    keyword: 'software company in Nagercoil',
+    title: 'Software Development Services',
+    keyword: 'software company for modern businesses',
     text: 'Yoonow Technologies helps businesses plan, build, and maintain practical software systems, admin panels, dashboards, billing tools, and automation workflows.'
   },
   {
-    title: 'Website Designer in Nagercoil',
-    keyword: 'website designer in Nagercoil',
-    text: 'Professional business websites, landing pages, portfolio websites, service pages, enquiry forms, WhatsApp flows, and SEO-ready page structure for local businesses.'
+    title: 'Business Website Development',
+    keyword: 'business website designer',
+    text: 'Professional business websites, landing pages, portfolio websites, service pages, enquiry forms, WhatsApp flows, and SEO-ready page structure for businesses.'
   },
   {
-    title: 'IT Support in Nagercoil',
-    keyword: 'IT support Nagercoil',
+    title: 'IT Support Services',
+    keyword: 'IT support services',
     text: 'Support for computers, laptops, printers, email, users, software issues, device setup, AMC maintenance, and daily business technology problems.'
   },
   {
-    title: 'Network Setup in Nagercoil',
-    keyword: 'network setup Nagercoil',
+    title: 'Network Setup Services',
+    keyword: 'network setup services',
     text: 'Routers, switches, cabling, Wi-Fi, firewall basics, office network cleanup, internet sharing, device access, and performance troubleshooting.'
   },
   {
-    title: 'CCTV Installation in Nagercoil',
-    keyword: 'CCTV installation Nagercoil',
+    title: 'CCTV Installation Services',
+    keyword: 'CCTV installation services',
     text: 'Camera planning, DVR/NVR setup, storage configuration, remote viewing, cabling coordination, and preventive security support for businesses.'
   },
   {
-    title: 'NAS Setup in Nagercoil',
-    keyword: 'NAS setup Nagercoil',
+    title: 'NAS Setup Services',
+    keyword: 'NAS setup services',
     text: 'NAS storage setup, shared folders, access permissions, backup planning, QNAP-style workflow support, and office file management guidance.'
   },
   {
-    title: 'Billing Software in Nagercoil',
-    keyword: 'billing software Nagercoil',
+    title: 'Billing Software Solutions',
+    keyword: 'billing software solutions',
     text: 'Quotation, invoice, receipt, customer records, payment tracking, dashboard reporting, and custom billing workflows for small businesses and service providers.'
   },
   {
-    title: 'Domain Email Setup in Nagercoil',
-    keyword: 'domain email setup Nagercoil',
+    title: 'Domain Email Setup Services',
+    keyword: 'domain email setup services',
     text: 'Business domain, professional email, DNS guidance, website hosting setup, SSL, forms, and launch support for new or growing businesses.'
   }
 ];
@@ -452,7 +452,7 @@ const completedProjects = [
       'Mobile-first frontend built with HTML, CSS and JavaScript for web and Android WebView usage.',
       'PHP API layer for attendance submission, approval action, pending state, analytics, uploads, logs and notification delivery.',
       'Role-based routing for surveyors, draftsmen, admin users and licence-admin access paths.',
-      'Server-side validation, duplicate/pending attendance protection, manual entry control and Dubai timezone handling.',
+      'Server-side validation, duplicate/pending attendance protection, manual entry control and client timezone handling.',
       'JSON/CSV storage structure for master data, attendance status, FCM tokens, licence users and report-related data.',
       'Firebase Cloud Messaging integration with token save/register/delete helpers and admin broadcast support.',
       'Cron automation for attendance reminders, admin alerts, pending approval alerts, birthday/holiday wishes and salary reports.',
@@ -733,7 +733,7 @@ const completedProjects = [
     liveLabel: 'Click here to view the project page',
     liveNote: 'This 360° drone viewer is a private client project. Public domain access is restricted to protect client confidentiality and hosted panorama data.',
     internalTitle: 'Private Client Project',
-    internalMessage: 'This 360° drone visualization platform was developed for a private Dubai client project. Public access is restricted to protect client confidentiality, project location data, drone survey assets and hosted panorama files. A demo or similar custom viewer can be arranged directly through Yoonow Technologies.',
+    internalMessage: 'This 360° drone visualization platform was developed for a private client project. Public access is restricted to protect client confidentiality, project location data, drone survey assets and hosted panorama files. A demo or similar custom viewer can be arranged directly through Yoonow Technologies.',
     internalBullets: [
       'Client restricted',
       'Drone assets protected',
@@ -906,7 +906,7 @@ const completedProjects = [
       'Firewall rule planning, traffic control and device connectivity checks completed without exposing confidential configuration data.',
       'Organised rack-side equipment placement and cable routing prepared for easier maintenance and future expansion.',
       'QNAP NAS shared folder structure planned for office project files, department folders and controlled user access.',
-      'Computer mapping and access assignment workflow prepared so users can work from shared storage instead of local-only files.',
+      'Computer mapping and access assignment workflow prepared so users can work from shared storage instead of device-only files.',
       'Storage capacity and permission planning considered for backup readiness, centralised data management and future growth.',
       'CCTV camera integration prepared through office network connectivity and NAS/QVR recording workflow.',
       'Monitoring and playback workflow documented for daily review, incident checking and maintenance follow-up.',
@@ -1066,7 +1066,7 @@ const completedProjects = [
     liveNote: 'Opens the live Niya Education Academy website with academy branding, programme details, board guidance, counselling content, call action, WhatsApp action and admission enquiry flow.',
     needLabel: 'Need Similar Website?',
     needTitle: 'Do you need a similar education website like this?',
-    needText: 'Yoonow Technologies can design and develop professional education websites with course sections, enquiry buttons, contact details, local SEO content and WhatsApp lead flow.',
+    needText: 'Yoonow Technologies can design and develop professional education websites with course sections, enquiry buttons, contact details, SEO content and WhatsApp lead flow.',
     introHighlights: [
       'Built as a professional education academy website for students who want to continue, restart or complete 10th and 12th education through guided board options.',
       'The uploaded source folder shows a React + TypeScript + TanStack Start website with route pages, responsive sections, counselling forms, Supabase enquiry support, SMTP email logic and SEO-ready structure.',
@@ -1087,9 +1087,9 @@ const completedProjects = [
       'Responsive Mobile UI',
       'Admission Lead Capture',
       'Call / WhatsApp CTA',
-      'Local SEO Pages'
+      'SEO Pages'
     ],
-    summary: 'Niya Education Academy Website is a professional education lead-generation website created for students and parents looking for 10th and 12th education guidance. The website presents NIYA Education Academy as a trusted learning academy for second-chance learners, discontinued students, private students and home-study learners. It explains board options such as NIOS, BOSSE, NWAC and APOSS, provides counselling-focused content, supports call and WhatsApp actions, includes enquiry forms, and creates a clean online presence for admission guidance and local trust building.',
+    summary: 'Niya Education Academy Website is a professional education lead-generation website created for students and parents looking for 10th and 12th education guidance. The website presents NIYA Education Academy as a trusted learning academy for second-chance learners, discontinued students, private students and home-study learners. It explains board options such as NIOS, BOSSE, NWAC and APOSS, provides counselling-focused content, supports call and WhatsApp actions, includes enquiry forms, and creates a clean online presence for admission guidance and business trust building.',
     businessProblem: 'The academy needed a clear and trustworthy online presence where students and parents could understand available 10th and 12th options, compare boards, get counselling, contact the academy quickly and submit admission enquiries. A normal static page would not be enough because the website needed strong messaging, enquiry capture, WhatsApp support, phone actions, SEO pages and mobile-friendly presentation.',
     solution: 'A modern responsive academy website was prepared with a strong hero section, NIYA branding, programme sections, board guidance, counselling content, testimonials, FAQ, contact actions, enquiry submission workflow, WhatsApp CTA, call CTA and SEO-focused route pages. The source also includes Supabase and SMTP enquiry logic so leads can be captured and sent to the academy team for follow-up.',
     workflowNote: 'This workflow is documented from the uploaded Niya Training Academy source folder and the provided real website screenshot. Only one main visual is used for this portfolio entry as requested.',
@@ -1108,7 +1108,7 @@ const completedProjects = [
       'SMTP email workflow prepared to send enquiry details directly to the academy for admission follow-up.',
       'Supabase integration and migration structure prepared for enquiry data handling and future backend expansion.',
       'Testimonials and trust-building sections to improve parent confidence and academy credibility.',
-      'SEO-focused route pages for local Nagercoil education searches such as 10th fail, 12th fail, NIOS admission and open schooling.'
+      'SEO-focused route pages for education-related searches such as 10th fail, 12th fail, NIOS admission and open schooling.'
     ],
     howItWorks: [
       'Visitors land on the hero section and immediately understand that NIYA supports 10th and 12th learners who want to continue or restart education.',
@@ -1118,7 +1118,7 @@ const completedProjects = [
       'The enquiry form collects student details, class requirement, board interest and contact information for follow-up.',
       'Form validation helps reduce invalid submissions and supports cleaner lead capture for the academy team.',
       'SMTP email logic sends the enquiry to the academy mailbox so staff can respond by phone or WhatsApp.',
-      'SEO landing pages help the academy reach students searching for 10th, 12th, NIOS, open schooling and second-chance learner support in Nagercoil.'
+      'SEO landing pages help the academy reach students searching for 10th, 12th, NIOS, open schooling and second-chance learner support for businesses.'
     ],
     howItWorksTitles: [
       'Hero Message',
@@ -1137,11 +1137,11 @@ const completedProjects = [
       'Tailwind CSS styling and responsive utility classes used for professional academy layout and mobile-friendly sections.',
       'Reusable site configuration stores academy phone, WhatsApp, email, address, opening hours and Google Maps query data.',
       'Lucide React icons used for polished call-to-action buttons, trust elements and section visuals.',
-      'Enquiry server function includes schema validation, Indian phone checking, spam-blocking logic and structured form handling.',
+      'Enquiry server function includes schema validation, phone number checking, spam-blocking logic and structured form handling.',
       'Nodemailer SMTP workflow prepared for sending admission enquiry email notifications to the academy.',
       'Supabase client, server client and migration files included for enquiry data support and future backend expansion.',
       'Google Analytics event helpers included for lead, phone and WhatsApp click tracking.',
-      'SEO route pages prepared for 10th fail students, 12th fail students, NIOS admission, open schooling and second-chance learners in Nagercoil.',
+      'SEO route pages prepared for 10th fail students, 12th fail students, NIOS admission, open schooling and second-chance learners for businesses.',
       'Favicon, sitemap, robots.txt and responsive metadata assets prepared for public launch and search engine readiness.'
     ],
     visualStructure: [
@@ -1151,13 +1151,13 @@ const completedProjects = [
       'Shows Yoonow can create a complete education business website with clear content strategy, responsive design and lead generation flow.',
       'Combines academy branding, student counselling message, board guidance and enquiry actions in one professional public website.',
       'Supports real business follow-up through phone, WhatsApp, SMTP enquiry email and future Supabase-backed lead handling.',
-      'SEO-focused pages help the academy target local search intent around 10th, 12th, NIOS, open schooling and second-chance education.'
+      'SEO-focused pages help the academy target search intent around 10th, 12th, NIOS, open schooling and second-chance education.'
     ],
     trustTitles: [
       'Education Branding',
       'Lead Generation',
       'Business Follow-up',
-      'Local SEO Ready'
+      'SEO Ready'
     ],
     filters: [
       'websites'
@@ -1247,7 +1247,7 @@ const completedProjects = [
     ],
     technical: [
       'React 19 application structure prepared with reusable components and section-based layout.',
-      'Vite development/build setup used for fast local development and deployment-ready production build.',
+      'Vite development/build setup used for fast development and deployment-ready production build.',
       'Three.js, React Three Fiber and Drei used for interactive 3D workstation/computer visual presentation.',
       'GSAP and @gsap/react used for hero text reveal animation and scroll-friendly motion effects.',
       'Framer Motion included for additional UI transitions and smooth interactive elements.',
@@ -1331,7 +1331,7 @@ const completedProjects = [
       'Pricing section structure prepared to explain repair packages or common service ranges clearly.',
       'Process section planned for diagnosis, repair approval, genuine parts and handover workflow explanation.',
       'Why-us content area prepared for technician trust, warranty, genuine parts and support highlights.',
-      'Testimonials section prepared to show customer trust and local service confidence.',
+      'Testimonials section prepared to show customer trust and service confidence.',
       'Contact and enquiry workflow prepared for phone, WhatsApp and repair diagnosis requests.',
       'Ongoing under-construction access popup added so visitors understand the public page is not released yet.'
     ],
@@ -1373,7 +1373,7 @@ const completedProjects = [
       'Homepage hero preview showing iHub logo, navigation menu, call button, premium device care label, large repair headline, service description, diagnosis CTA, services CTA and device repair visual branding.'
     ],
     trustNotes: [
-      'Shows Yoonow can design strong branded webpages for local service businesses with direct customer enquiry goals.',
+      'Shows Yoonow can design strong branded webpages for service businesses with direct customer enquiry goals.',
       'Uses a premium repair-shop visual style instead of a basic template look, helping the business appear more professional.',
       'Connects business content, service explanation, pricing, testimonials and contact flow into one clear customer journey.',
       'Keeps public access clearly marked as under construction until the final live page is ready to release.'
@@ -1469,7 +1469,7 @@ const completedProjects = [
     technical: [
       'TanStack Start project structure prepared with route-based React pages and generated route tree workflow.',
       'React 19 and TypeScript used for modern component-based webpage development and maintainable UI sections.',
-      'Vite development and build setup prepared for local development, preview and production deployment.',
+      'Vite development and build setup prepared for development, preview and production deployment.',
       'Tailwind CSS styling direction used for responsive spacing, luxury colour palette and fashion-focused layout polish.',
       'Framer Motion dependency available for smooth page animations and premium hero/service interactions.',
       'Radix UI component library included for scalable dialogs, navigation, accordions, tabs, sheets and accessible UI patterns.',
@@ -1511,11 +1511,11 @@ const completedProjects = [
     status: 'Ongoing project',
     accessType: 'internalPopup',
     liveLabel: 'Click here to view the project page',
-    liveNote: 'This HireFit AI project is currently running in local development and will be available after final deployment.',
+    liveNote: 'This HireFit AI project is currently running in development and will be available after final deployment.',
     internalTitle: 'Project Under Construction',
-    internalMessage: 'HireFit AI is currently under active development. The local project is working, but public live access will be enabled only after final environment setup, database configuration, AI service keys, deployment checks and release testing are completed. Once finished, you can check the live page from here.',
+    internalMessage: 'HireFit AI is currently under active development. The project is working, but public live access will be enabled only after final environment setup, database configuration, AI service keys, deployment checks and release testing are completed. Once finished, you can check the live page from here.',
     internalBullets: [
-      'Local build working',
+      'Build working',
       'Deployment pending',
       'Live access after release'
     ],
@@ -1542,7 +1542,7 @@ const completedProjects = [
     summary: 'HireFit AI is an AI-powered career workspace designed to help job seekers improve resumes, beat ATS systems, generate cover letters, prepare for interviews and track every job application in one focused platform. The project presents a clean landing page with an ATS match report preview, skill/keyword/experience/education scoring, recommended fixes, pricing flow, guides, security content and account access direction. It is currently marked as ongoing while the full backend, database, authentication and AI service deployment are being prepared for public release.',
     businessProblem: 'Job seekers often apply to many roles without knowing whether their resume can pass ATS filters or match the exact job description. They may also use separate tools for resume editing, cover letters, interview preparation and application tracking, which creates confusion and weak follow-up. A single AI-assisted workspace was needed to organise the career preparation flow clearly.',
     solution: 'HireFit AI was prepared as a structured career platform with ATS scoring, resume optimisation, cover letter generation, interview preparation, job tracker and AI-supported recommendations. The landing page explains the value clearly, while the project architecture includes frontend, backend, database schema, authentication flow, AI service integration and subscription-ready feature planning.',
-    workflowNote: 'This portfolio entry is prepared from the uploaded HireFit AI project folder, README/project documentation and the working local screenshot shared after dependency installation was fixed.',
+    workflowNote: 'This portfolio entry is prepared from the uploaded HireFit AI project folder, README/project documentation and the working project screenshot shared after dependency installation was fixed.',
     gallery: [
       '/assets/images/projects/hirefit-ai-home.webp'
     ],
@@ -1750,7 +1750,7 @@ const services = [
     id: 'it-support',
     number: '02',
     title: 'Managed IT Support',
-    text: 'IT support in Nagercoil for email, users, printers, software errors, slow systems, device setup, and daily office support requests.',
+    text: 'IT support for businesses for email, users, printers, software errors, slow systems, device setup, and daily office support requests.',
     icon: 'headset',
     featured: true
   },
@@ -1758,7 +1758,7 @@ const services = [
     id: 'networking',
     number: '03',
     title: 'Network Setup & Wi‑Fi',
-    text: 'Network setup in Nagercoil for structured cabling, routers, switches, firewalls, secure Wi‑Fi, office troubleshooting, and performance optimization.',
+    text: 'Network setup for businesses for structured cabling, routers, switches, firewalls, secure Wi‑Fi, office troubleshooting, and performance optimization.',
     icon: 'network',
     featured: true
   },
@@ -1774,7 +1774,7 @@ const services = [
     id: 'cctv',
     number: '05',
     title: 'CCTV Installation & Security Systems',
-    text: 'CCTV installation in Nagercoil with camera planning, DVR/NVR setup, remote viewing, storage configuration, and preventive security maintenance.',
+    text: 'CCTV installation for businesses with camera planning, DVR/NVR setup, remote viewing, storage configuration, and preventive security maintenance.',
     icon: 'camera',
     featured: true
   },
@@ -1782,7 +1782,7 @@ const services = [
     id: 'server-nas',
     number: '06',
     title: 'Server & NAS Support',
-    text: 'NAS setup in Nagercoil for storage configuration, shared folders, backup scheduling, access permissions, and ongoing performance and health monitoring.',
+    text: 'NAS setup for businesses for storage configuration, shared folders, backup scheduling, access permissions, and ongoing performance and health monitoring.',
     icon: 'server'
   },
   {
@@ -1803,7 +1803,7 @@ const services = [
     id: 'software',
     number: '09',
     title: 'Custom Software Development',
-    text: 'Custom software development in Nagercoil for billing software, CRM systems, attendance portals, dashboards, business automation software, and workflow applications.',
+    text: 'Custom software development for businesses for billing software, CRM systems, attendance portals, dashboards, business automation software, and workflow applications.',
     icon: 'code',
     featured: true
   },
@@ -1811,7 +1811,7 @@ const services = [
     id: 'web-mobile',
     number: '10',
     title: 'Website & Mobile App Development',
-    text: 'Website design and website development in Nagercoil for professional websites, landing pages, e-commerce builds, mobile apps, and growth-focused digital platforms.',
+    text: 'Website design and website development for businesses for professional websites, landing pages, e-commerce builds, mobile apps, and growth-focused digital platforms.',
     icon: 'phone',
     featured: true
   },
@@ -1819,7 +1819,7 @@ const services = [
     id: 'software-licensing',
     number: '11',
     title: 'Software Licensing Support',
-    text: 'Software licence and domain email setup support in Nagercoil, including purchase coordination, installation, activation, renewal tracking, and documentation.',
+    text: 'Software licence and domain email setup support for businesses, including purchase coordination, installation, activation, renewal tracking, and documentation.',
     icon: 'shield',
     featured: true
   },

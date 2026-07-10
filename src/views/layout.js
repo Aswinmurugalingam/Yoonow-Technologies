@@ -123,7 +123,7 @@ function renderPage({ title, description, path = '/', body }) {
     gtag('js', new Date());
     gtag('config', 'G-W8M54BGB32');
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=scroll-fast-native-v14" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=faq-clarity-text-v18" />
   <script>
     (function () {
       try {
@@ -141,25 +141,20 @@ function renderPage({ title, description, path = '/', body }) {
     url: site.url,
     email: site.email,
     telephone: site.phone,
-    areaServed: ['Nagercoil'],
+    areaServed: 'Global',
     knowsAbout: seoKeywords || [],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Yoonow Technologies Local Services',
+      name: 'Yoonow Technologies Services',
       itemListElement: (localSeoServices || []).map((service) => ({
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
           name: service.title,
           description: service.text,
-          areaServed: 'Nagercoil'
+          areaServed: 'Global'
         }
       }))
-    },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Nagercoil',
-      addressCountry: 'IN',
     },
   })}</script>
 </head>
@@ -205,7 +200,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=scroll-fast-native-v14" defer></script>
+  <script src="/assets/js/main.js?v=faq-clarity-text-v18" defer></script>
 </body>
 </html>`;
 }

@@ -540,6 +540,22 @@
     });
   }
 
+
+  // FAQ accordion: keep one answer open inside each FAQ card.
+  document.querySelectorAll('.faq-board-list').forEach(function (list) {
+    var items = Array.prototype.slice.call(list.querySelectorAll('details[data-faq-accordion]'));
+    if (!items.length) return;
+
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (!item.open) return;
+        items.forEach(function (other) {
+          if (other !== item) other.open = false;
+        });
+      });
+    });
+  });
+
   document.querySelectorAll('[data-package-switcher]').forEach(function (switcher) {
     var tabs = switcher.querySelectorAll('[data-package-tab]');
     var panels = switcher.querySelectorAll('[data-package-panel]');

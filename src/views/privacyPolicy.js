@@ -12,7 +12,7 @@ const privacySections = [
   {
     number: '01',
     title: 'Business information',
-    text: `${site.name} is based in Nagercoil and provides technology support, website development, software development, networking, CCTV, licensing support, and related business technology services.`
+    text: `${site.name} provides technology support, website development, software development, networking, CCTV, licensing support, and related business technology services.`
   },
   {
     number: '02',

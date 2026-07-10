@@ -4,7 +4,7 @@ const { site } = require('../data/siteData');
 const faqStats = [
   ['12+', 'Project categories supported'],
   ['24 hrs', 'Typical enquiry review window'],
-  ['Nagercoil', 'Business location'],
+  ['Global', 'Support ready'],
   ['Files', 'Screenshots, PDFs, ZIPs accepted']
 ];
 
@@ -33,7 +33,7 @@ const faqs = [
     items: [
       ['What services does Yoonow Technologies provide?', 'We support computer and laptop service, printer setup, networking, Wi-Fi, CCTV, NAS backup, firewall setup, software licensing, business websites, dashboards, and custom software projects.'],
       ['Do you provide AMC support?', 'Yes. AMC scope can be planned based on device count, printer count, network devices, CCTV cameras, users, visit requirements, response method, and support priority.'],
-      ['What details should I share for IT support?', 'Share device count, issue photos or screenshots, error messages, model numbers, urgency level, and your Nagercoil location details so the issue can be reviewed clearly.']
+      ['What details should I share for IT support?', 'Share device count, issue photos or screenshots, error messages, model numbers, urgency level, and your business location details so the issue can be reviewed clearly.']
     ]
   },
   {
@@ -60,7 +60,7 @@ const faqs = [
     items: [
       ['How do I contact Yoonow Technologies?', `You can call or WhatsApp ${site.phone}, email ${site.email}, or submit the Contact / Get Quote form on this website.`],
       ['Can I attach files in the enquiry form?', 'Yes. You can attach small images, PDFs, documents, screenshots, or ZIP files. For very large videos, share a Drive or OneDrive link inside the requirement box.'],
-      ['Where is Yoonow Technologies located?', 'Yoonow Technologies is based in Nagercoil.']
+      ['Where is Yoonow Technologies located?', 'Yoonow Technologies provides project-based and remote technology support for businesses.']
     ]
   }
 ];
@@ -96,7 +96,7 @@ function renderFaqGroups() {
       </div>
       <div class="faq-board-list">
         ${section.items.map(([question, answer], index) => `
-          <details class="faq-pro-item" ${groupIndex === 0 && index === 0 ? 'open' : ''}>
+          <details class="faq-pro-item" data-faq-accordion ${['IT / AMC', 'Development', 'Infrastructure', 'Enquiry'].includes(section.tag) && index === 0 ? 'open' : ''}>
             <summary>${question}</summary>
             <p>${answer}</p>
           </details>
@@ -109,7 +109,7 @@ function renderFaqGroups() {
 function faqPage() {
   return renderPage({
     title: `FAQ | ${site.name}`,
-    description: `Frequently asked questions about ${site.name}, software company in Nagercoil, website development, IT support, CCTV installation, network setup, NAS setup, billing software, and custom software projects.`,
+    description: `Frequently asked questions about ${site.name}, software company for businesses, website development, IT support, CCTV installation, network setup, NAS setup, billing software, and custom software projects.`,
     path: '/faq',
     body: `
       <section class="faq-pro-hero section-tight">

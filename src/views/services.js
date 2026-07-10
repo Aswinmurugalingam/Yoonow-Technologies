@@ -6,9 +6,9 @@ const { services, plans } = require('../data/siteData');
 
 function servicesPage() {
   return renderPage({
-    title: 'Software Company in Nagercoil | Website Design, IT Support & CCTV',
+    title: 'Technology Services | Website Development, IT Support & CCTV',
     description:
-      "Yoonow Technologies is a software company in Nagercoil offering website design, website development, custom software development, billing software, IT support, network setup, CCTV installation, NAS setup, computer support services, and domain email setup.",
+      "Yoonow Technologies is a technology service provider offering website design, website development, custom software development, billing software, IT support, network setup, CCTV installation, NAS setup, computer support services, and domain email setup.",
     path: '/services',
     body: `
       <section class="page-hero section-tight">

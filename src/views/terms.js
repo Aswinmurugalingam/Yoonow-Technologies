@@ -89,7 +89,7 @@ function termsPage() {
           <aside class="terms-update-card">
             <span>Last updated</span>
             <strong>09 July 2026</strong>
-            <p>Location: Nagercoil</p>
+            <p>Service availability: Project-based and remote support</p>
           </aside>
         </div>
       </section>
