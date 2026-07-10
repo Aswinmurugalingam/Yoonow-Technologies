@@ -115,7 +115,12 @@ function renderPage({ title, description, path = '/', body }) {
   <meta property="og:image" content="https://www.yoonowtech.com/assets/images/hero-office.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="${site.url}${path === '/' ? '' : path}" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-W8M54BGB32"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -123,7 +128,7 @@ function renderPage({ title, description, path = '/', body }) {
     gtag('js', new Date());
     gtag('config', 'G-W8M54BGB32');
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=global-wording-v15" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=favicon-search-icon-v19" />
   <script>
     (function () {
       try {
