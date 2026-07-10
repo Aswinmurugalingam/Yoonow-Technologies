@@ -128,7 +128,7 @@ function renderPage({ title, description, path = '/', body }) {
     gtag('js', new Date());
     gtag('config', 'G-W8M54BGB32');
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=favicon-search-icon-v19" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=project-visual-fit-v20" />
   <script>
     (function () {
       try {

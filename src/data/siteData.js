@@ -863,9 +863,7 @@ const completedProjects = [
     solution: 'A combined office IT setup was prepared with FortiGate firewall for network security, switches and cabling for stable workstation connectivity, QNAP NAS for centralised shared folders and CCTV recording integration, plus monitoring access for office camera review. The result is a cleaner, controlled and easier-to-maintain office infrastructure workflow.',
     workflowNote: 'This portfolio entry merges the earlier Project 05 FortiGate Office Network Setup, Project 06 QNAP NAS Office File System and Project 07 CCTV + QNAP QVR Pro Setup because all three belong to the same completed office infrastructure environment.',
     gallery: [
-      '/assets/images/projects/office-infrastructure-fortigate.webp',
-      '/assets/images/projects/office-infrastructure-qnap-nas.webp',
-      '/assets/images/projects/office-infrastructure-cctv.webp'
+      '/assets/images/projects/office-infrastructure-preview.webp'
     ],
     modules: [
       'FortiGate firewall gateway configuration for office internet, LAN control and secured network traffic flow.',
@@ -916,9 +914,7 @@ const completedProjects = [
       'Public portfolio images and descriptions use safe infrastructure wording without passwords, public IPs, VPN keys, usernames, serial numbers or license details.'
     ],
     visualStructure: [
-      'FortiGate firewall, switches and organised cabling shown as the network/security control layer for the office infrastructure.',
-      'QNAP NAS storage units shown as the central shared-file system for office users and project data.',
-      'CCTV cameras and monitoring screen shown as the surveillance and QVR-style recording workflow for the same office.'
+      'Complete office infrastructure preview showing FortiGate network security, QNAP NAS storage and CCTV workflow as one connected setup.'
     ],
     trustNotes: [
       'Shows Yoonow can plan office infrastructure as one connected system instead of only fixing devices one by one.',
@@ -1409,7 +1405,7 @@ const completedProjects = [
       'Live page available after release'
     ],
     needLabel: 'Need Similar Website?',
-    needTitle: 'Do you need a similar fashion or portfolio website like this?',
+    needTitle: 'Do you need a similar fashion webpage or similar like this?',
     needText: 'Yoonow Technologies can design and build a professional webpage for boutiques, fashion brands, costume designers, bridal studios and training centres with service sections, gallery, booking CTA, WhatsApp flow and premium brand presentation.',
     stack: [
       'TanStack Start',

@@ -6716,3 +6716,61 @@ video.lazy-video.is-ready {
     transform: none;
   }
 }
+
+
+/* === Project visual structure final fit fixes === */
+.project-detail-page-project-management-software .project-gallery-grid-large.project-gallery-single img {
+  aspect-ratio: 16 / 8.8 !important;
+  object-fit: contain !important;
+  transform: scale(.96) !important;
+  padding: 10px !important;
+  background: rgba(255, 255, 255, .96) !important;
+}
+.project-detail-page-project-management-software .project-gallery-grid-large.project-gallery-single figcaption {
+  margin-top: 18px !important;
+  padding-top: 18px !important;
+  min-height: 82px !important;
+  align-items: flex-start !important;
+}
+.project-detail-page-fortigate-qnap-cctv-office-setup .project-gallery-grid-large.project-gallery-single {
+  max-width: 1120px !important;
+}
+.project-detail-page-fortigate-qnap-cctv-office-setup .project-gallery-grid-large.project-gallery-single img {
+  aspect-ratio: 16 / 8.8 !important;
+  object-fit: contain !important;
+  transform: none !important;
+  padding: 8px !important;
+  background: rgba(255, 255, 255, .96) !important;
+}
+.project-detail-page-fortigate-qnap-cctv-office-setup .project-gallery-grid-large.project-gallery-single figcaption {
+  margin-top: 14px !important;
+  padding-top: 16px !important;
+}
+.project-detail-page-geometa-pro-website .project-gallery-grid-large {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+.project-detail-page-geometa-pro-website .project-gallery-grid-large figure {
+  min-width: 0;
+}
+.project-detail-page-geometa-pro-website .project-gallery-grid-large img {
+  aspect-ratio: 16 / 9 !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  transform: none !important;
+  padding: 8px !important;
+  background: rgba(255, 255, 255, .96) !important;
+}
+.project-detail-page-geometa-pro-website .project-gallery-grid-large figcaption {
+  min-height: 88px !important;
+}
+@media (max-width: 1180px) {
+  .project-detail-page-geometa-pro-website .project-gallery-grid-large {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 760px) {
+  .project-detail-page-geometa-pro-website .project-gallery-grid-large {
+    grid-template-columns: 1fr !important;
+  }
+}
