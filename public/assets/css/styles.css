@@ -27,7 +27,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+html { scroll-behavior: auto; scroll-padding-top: 92px; }
 body {
   margin: 0;
   background: var(--bg);
@@ -6022,17 +6022,7 @@ video.lazy-video.is-ready {
 }
 
 
-/* Light smooth-scroll polish: no section snap, no forced section loading */
-html.soft-scroll-active {
-  scroll-behavior: auto;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html,
-  html.soft-scroll-active {
-    scroll-behavior: auto;
-  }
-}
+/* Fast native browser scrolling. No custom wheel animation, no slow smooth-scroll, and no scrollbar drag conflict. */
 
 
 /* Final launch FAQ and legal pages */
