@@ -312,21 +312,79 @@
     }
   }
 
-  function trackYoonowLead(form, attachmentCount) {
+  function trackYoonowEvent(eventName, params) {
     if (typeof window.gtag !== 'function') return;
 
+    var eventParams = Object.assign({
+      event_category: 'lead',
+      page_path: window.location.pathname,
+      page_title: document.title
+    }, params || {});
+
+    window.gtag('event', eventName, eventParams);
+  }
+
+  function trackYoonowLead(form, attachmentCount) {
     var formTypeField = form ? form.querySelector('[name="formType"]') : null;
     var formType = formTypeField ? String(formTypeField.value || 'Website Enquiry') : 'Website Enquiry';
     var normalizedType = formType.toLowerCase().indexOf('quote') !== -1 ? 'quote_request' : 'contact_enquiry';
-
-    window.gtag('event', 'generate_lead', {
-      event_category: 'lead',
+    var customEventName = normalizedType === 'quote_request' ? 'quote_form_submit' : 'contact_form_submit';
+    var commonParams = {
       form_type: normalizedType,
       form_label: formType,
-      page_path: window.location.pathname,
       attachment_count: Number(attachmentCount || 0)
-    });
+    };
+
+    trackYoonowEvent(customEventName, commonParams);
+
+    trackYoonowEvent('generate_lead', Object.assign({
+      value: 1,
+      currency: 'INR'
+    }, commonParams));
   }
+
+  function initYoonowClickTracking() {
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest && event.target.closest('a[href]');
+      if (!link) return;
+
+      var href = link.getAttribute('href') || '';
+      var label = (link.textContent || link.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim();
+      var eventName = '';
+      var eventParams = {
+        link_text: label,
+        link_url: href
+      };
+
+      if (/wa\.me|whatsapp\.com/i.test(href)) {
+        eventName = 'whatsapp_click';
+        eventParams.event_category = 'lead';
+        eventParams.contact_method = 'whatsapp';
+      } else if (href.indexOf('mailto:') === 0) {
+        eventName = 'email_click';
+        eventParams.event_category = 'lead';
+        eventParams.contact_method = 'email';
+      } else if (href.indexOf('tel:') === 0) {
+        eventName = 'phone_click';
+        eventParams.event_category = 'lead';
+        eventParams.contact_method = 'phone';
+      } else {
+        var url;
+        try { url = new URL(href, window.location.href); } catch (e) { url = null; }
+        var pathname = url ? url.pathname.replace(/\/+$/, '') : '';
+        var quoteIntent = pathname === '/quote' || /request quote|get quote|quote/i.test(label);
+        if (quoteIntent) {
+          eventName = 'request_quote_click';
+          eventParams.event_category = 'lead';
+          eventParams.destination_path = pathname || href;
+        }
+      }
+
+      if (eventName) trackYoonowEvent(eventName, eventParams);
+    }, { passive: true });
+  }
+
+  initYoonowClickTracking();
 
   document.querySelectorAll('[data-lead-form]').forEach(function (form) {
     var note = form.querySelector('.form-note');

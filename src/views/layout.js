@@ -123,7 +123,7 @@ function renderPage({ title, description, path = '/', body }) {
     gtag('js', new Date());
     gtag('config', 'G-W8M54BGB32');
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=faq-clarity-text-v18" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=global-wording-v15" />
   <script>
     (function () {
       try {
@@ -200,7 +200,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=faq-clarity-text-v18" defer></script>
+  <script src="/assets/js/main.js?v=ga4-lead-events-v19" defer></script>
 </body>
 </html>`;
 }
