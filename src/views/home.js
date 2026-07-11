@@ -1,6 +1,6 @@
 const { renderPage } = require('./layout');
 const { icon } = require('./icons');
-const { site, technologies, services, amcPillars, plans, developmentPackages, industries, stats, launchReadiness, video, promo } = require('../data/siteData');
+const { site, technologies, technologyStack, testimonials, services, amcPillars, plans, developmentPackages, industries, stats, launchReadiness, video, promo } = require('../data/siteData');
 
 const deliveryPoints = [
   {
@@ -294,6 +294,40 @@ function homePage() {
     </section>
 
 
+
+    <section class="section-tight" id="technology-stack-preview">
+      <div class="page-grid">
+        ${sectionIntro({
+          label: 'Technology Stack',
+          title: 'Advanced technology planning behind every Yoonow project.',
+          text: 'Our projects are not only designed visually. They are structured across frontend experience, backend workflow, deployment infrastructure, and security readiness so every website, software system, and support setup can grow professionally.',
+          centered: true,
+        })}
+        <div class="home-stack-preview-grid advanced">
+          ${technologyStack.map((group, index) => `
+            <a href="/technology-stack" class="home-stack-card glass reveal" data-tilt style="--stack-delay:${index * 100}ms">
+              <span class="home-stack-icon">${icon(group.icon)}</span>
+              <span class="home-stack-kicker">Layer ${String(index + 1).padStart(2, '0')}</span>
+              <strong>${group.shortCategory || group.category}</strong>
+              <small>${group.summary}</small>
+              <ul class="home-stack-mini-list">
+                ${group.capabilities.slice(0, index === 0 ? 4 : 3).map((item) => `<li>${item}</li>`).join('')}
+              </ul>
+              <span class="home-stack-tools">${group.tools.slice(0, 14).join(' • ')}</span>
+            </a>`).join('')}
+        </div>
+        <div class="stack-proof-strip glass reveal">
+          <span>React / Next.js Ready</span>
+          <span>Node / Supabase / Firebase</span>
+          <span>Cloudflare / Vercel / AWS Ready</span>
+          <span>Google Workspace / Microsoft 365</span>
+          <span>FortiGate / QNAP / CCTV</span>
+          <span>GA4 / Search Console / Security</span>
+        </div>
+        <div class="center-actions stack-preview-action"><a href="/technology-stack" class="btn btn-secondary">View Full Technology Stack ${icon('arrow')}</a></div>
+      </div>
+    </section>
+
     <section class="section-tight" id="services">
       <div class="page-grid">
         ${sectionIntro({
@@ -317,7 +351,26 @@ function homePage() {
       </div>
     </section>
 
-    ${renderDevelopmentPackagesSection({ id: 'development-packages', extraClass: 'home-dev-packages' })}
+    <section class="section-tight home-package-teaser" id="development-packages">
+      <div class="page-grid">
+        ${sectionIntro({
+          label: 'Development Packages',
+          title: 'Website and app package overview.',
+          text: 'Home shows a short package preview. Full pricing and package details are available on the Services page to keep the launch page focused and easy to scroll.',
+          centered: true,
+        })}
+        <div class="package-teaser-grid">
+          ${Object.entries(developmentPackages).flatMap(([typeKey, group]) => group.plans.slice(0, 2).map((pkg) => ({ group: group.label || typeKey, ...pkg }))).slice(0, 4).map((pkg) => `
+            <article class="package-teaser-card glass reveal" data-tilt>
+              <span>${pkg.group}</span>
+              <h3>${pkg.title}</h3>
+              <strong>${pkg.price}</strong>
+              <p>${pkg.desc}</p>
+            </article>`).join('')}
+        </div>
+        <div class="center-actions stack-preview-action"><a href="/services#service-development-packages" class="btn btn-primary">View Full Packages ${icon('arrow')}</a></div>
+      </div>
+    </section>
 
     <section class="section-tight business-showcase-section" id="showcase">
       <div class="page-grid showcase-grid">
@@ -325,7 +378,7 @@ function homePage() {
           ${sectionIntro({
             label: 'Business Showcase',
             title: 'A polished service story with media, proof, and clear actions.',
-            text: 'This section now works like a premium showcase panel instead of another image-and-text block. It explains the business value while the media card supports your service presentation.',
+            text: 'See how Yoonow supports real businesses day to day with reliable IT support, secure infrastructure, website delivery, and custom software solutions under one professional service partner.',
             centered: false,
           })}
           <div class="showcase-points">
@@ -358,7 +411,7 @@ function homePage() {
         ${sectionIntro({
           label: 'Delivery Strength',
           title: 'A practical delivery flow from site check to long-term support.',
-          text: "Instead of a repeated image layout, this section now shows Yoonow's working process as a clean roadmap for real office environments.",
+          text: "A clear, repeatable delivery process for every technology project, from requirement review and planning to setup, testing, handover, and long-term support.",
           centered: true,
         })}
         <div class="delivery-roadmap process-sequence" data-process-sequence>
@@ -392,7 +445,7 @@ function homePage() {
           ${sectionIntro({
             label: 'Why Choose Yoonow',
             title: 'One accountable team for office technology, security, and software.',
-            text: 'This section is now a feature matrix with a visual operations console, so it looks different from the showcase and delivery sections while keeping the message professional.',
+            text: 'One accountable team for IT support, security, infrastructure, websites, and software, helping businesses avoid vendor confusion and keep technology work organised.',
             centered: false,
           })}
           <div class="why-feature-grid">
@@ -504,7 +557,7 @@ function homePage() {
         ${sectionIntro({
           label: 'Launch Readiness',
           title: 'A complete technology foundation for new and growing businesses.',
-          text: 'Since Yoonow is now starting its journey, this section presents what we can set up for offices, shops, academies, service teams, and startups before daily operations begin.',
+          text: 'A complete technology foundation for new and growing businesses, covering computers, network, CCTV, backup, website, email, and software workflow planning before daily operations begin.',
           centered: true,
         })}
         <div class="startup-ready-grid">

@@ -11,6 +11,8 @@ const { contactPage } = require('./src/views/contact');
 const { faqPage } = require('./src/views/faq');
 const { privacyPolicyPage } = require('./src/views/privacyPolicy');
 const { termsPage } = require('./src/views/terms');
+const { technologyStackPage } = require('./src/views/technologyStack');
+const { completedProjects } = require('./src/data/siteData');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -385,12 +387,17 @@ app.get('/', (_req, res) => res.send(homePage()));
 app.get('/about', (_req, res) => res.send(aboutPage()));
 app.get('/services', (_req, res) => res.send(servicesPage()));
 app.get('/projects', (_req, res) => res.send(projectsPage()));
-app.get('/projects/:slug', (req, res) => res.send(projectDetailPage(req.params.slug)));
+app.get('/projects/:slug', (req, res) => {
+  const project = completedProjects.find((item) => item.slug === req.params.slug || (Array.isArray(item.aliases) && item.aliases.includes(req.params.slug)));
+  if (project && project.slug !== req.params.slug) return res.redirect(301, `/projects/${project.slug}`);
+  return res.send(projectDetailPage(req.params.slug));
+});
 app.get('/quote', (_req, res) => res.send(quotePage()));
 app.get('/contact', (_req, res) => res.send(contactPage()));
 app.get('/faq', (_req, res) => res.send(faqPage()));
 app.get('/privacy-policy', (_req, res) => res.send(privacyPolicyPage()));
 app.get('/terms', (_req, res) => res.send(termsPage()));
+app.get('/technology-stack', (_req, res) => res.send(technologyStackPage()));
 
 app.use((_req, res) => {
   res.status(404).send(homePage());

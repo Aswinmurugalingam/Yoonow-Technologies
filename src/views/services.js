@@ -76,7 +76,7 @@ function servicesPage() {
               <figcaption class="field-caption"><strong>CCTV & Security</strong><span>Camera installation</span></figcaption>
             </figure>
             <figure class="field-card reveal">
-              <img src="/assets/images/mobile-app.jpg" alt="Mobile app development on a smartphone" loading="lazy" />
+              <img src="/assets/images/mobile-app.webp" alt="Mobile app development on a smartphone" loading="lazy" />
               <figcaption class="field-caption"><strong>Web & Mobile</strong><span>App development</span></figcaption>
             </figure>
           </div>

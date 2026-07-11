@@ -70,7 +70,7 @@ function footer() {
             <li><a href="/services#cctv">CCTV Installation <span>→</span></a></li>
             <li><a href="/services#software">Software Development <span>→</span></a></li>
             <li><a href="/services#amc">AMC Support <span>→</span></a></li>
-            <li><a href="/services#licensing">Software Licensing <span>→</span></a></li>
+            <li><a href="/services#software-licensing">Software Licensing <span>→</span></a></li>
           </ul>
         </div>
 
@@ -98,7 +98,7 @@ function footer() {
     </footer>`;
 }
 
-function renderPage({ title, description, path = '/', body }) {
+function renderPage({ title, description, path = '/', body, image = '/assets/images/hero-office.webp', schema = null }) {
   return `<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -112,8 +112,9 @@ function renderPage({ title, description, path = '/', body }) {
   <meta property="og:site_name" content="${site.name}" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description || site.description}" />
-  <meta property="og:image" content="https://www.yoonowtech.com/assets/images/hero-office.jpg" />
+  <meta property="og:image" content="${image.startsWith('http') ? image : `${site.url}${image}`}" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="${image.startsWith('http') ? image : `${site.url}${image}`}" />
   <link rel="canonical" href="${site.url}${path === '/' ? '' : path}" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
@@ -128,7 +129,7 @@ function renderPage({ title, description, path = '/', body }) {
     gtag('js', new Date());
     gtag('config', 'G-W8M54BGB32');
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=project-visual-fit-v20" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=techstack-card-inner-v29" />
   <script>
     (function () {
       try {
@@ -162,6 +163,7 @@ function renderPage({ title, description, path = '/', body }) {
       }))
     },
   })}</script>
+  ${schema ? (Array.isArray(schema) ? schema : [schema]).map((item) => `<script type="application/ld+json">${JSON.stringify(item)}</script>`).join('') : ''}
 </head>
 <body data-path="${path}">
   <div class="ambient-bg" aria-hidden="true"></div>
@@ -205,7 +207,7 @@ function renderPage({ title, description, path = '/', body }) {
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=ga4-lead-events-v19" defer></script>
+  <script src="/assets/js/main.js?v=techstack-card-inner-v29" defer></script>
 </body>
 </html>`;
 }

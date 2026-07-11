@@ -1,7 +1,7 @@
 const { renderPage } = require('./layout');
 const { icon } = require('./icons');
 const aboutVideo = {
-  src: '/assets/video/about-software-development.mp4',
+  src: '/assets/video/about-software-development.mp4?v=about-video-v2',
 };
 
 const aboutHighlights = [
@@ -122,13 +122,13 @@ function aboutPage() {
           </div>
 
           <figure class="video-panel about-video-card glass reveal" data-tilt>
-            <video class="clean-video lazy-video" autoplay muted loop playsinline preload="none" data-lazy-video aria-label="Yoonow Technologies software and web development overview video">
-              <source data-src="${aboutVideo.src}" type="video/mp4" />
+            <video class="clean-video" autoplay muted loop playsinline preload="auto" aria-label="Yoonow Technologies software and web development overview video">
+              <source src="${aboutVideo.src}" type="video/mp4" />
               Your browser does not support embedded video.
             </video>
             <figcaption>
               <strong>See how Yoonow builds digital systems for business.</strong>
-              <span>Add your software, app, and web development video here. The content below explains the value of the video and keeps the card balanced.</span>
+              <span>A quick look at how Yoonow plans, builds, and delivers software and web projects from requirement understanding to professional handover.</span>
             </figcaption>
             <div class="about-video-points">
               ${renderAboutVideoPoints()}

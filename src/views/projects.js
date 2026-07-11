@@ -8,7 +8,32 @@ function projectFilterTags(project) {
 }
 
 function slugToProject(slug) {
-  return completedProjects.find((project) => project.slug === slug) || null;
+  return completedProjects.find((project) => project.slug === slug || (Array.isArray(project.aliases) && project.aliases.includes(slug))) || null;
+}
+
+function projectSchema(project) {
+  const projectUrl = `https://www.yoonowtech.com/projects/${project.slug}`;
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': project.filters && project.filters.includes('software') ? 'SoftwareApplication' : 'CreativeWork',
+      name: project.title,
+      description: project.summary || project.subtitle,
+      image: `https://www.yoonowtech.com${project.image}`,
+      url: projectUrl,
+      creator: { '@type': 'Organization', name: 'Yoonow Technologies', url: 'https://www.yoonowtech.com' },
+      applicationCategory: project.category || 'Business technology project'
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.yoonowtech.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://www.yoonowtech.com/projects' },
+        { '@type': 'ListItem', position: 3, name: project.title, item: projectUrl }
+      ]
+    }
+  ];
 }
 
 function projectStatusClass(status = '') {
@@ -193,7 +218,7 @@ function projectDetailPage(slug) {
   const project = slugToProject(slug);
   if (!project) return projectsPage();
 
-  const galleryImages = project.gallery || [project.image, '/assets/images/hero-office.jpg', '/assets/images/team-planning.jpg'];
+  const galleryImages = project.gallery || [project.image, '/assets/images/hero-office.webp', '/assets/images/team-planning.jpg'];
   const workflowTitles = project.howItWorksTitles || [];
   const trustNoteTitles = project.trustTitles || [];
   const hasRealAnalysis = Boolean(project.businessProblem || project.solution || project.modules);
@@ -218,6 +243,8 @@ function projectDetailPage(slug) {
     title: `${project.title} | Yoonow Technologies Project`,
     description: project.summary,
     path: `/projects/${project.slug}`,
+    image: project.image,
+    schema: projectSchema(project),
     body: `
       <div class="project-detail-page project-detail-page-${project.slug}">
       <section class="page-hero project-detail-hero section-tight">

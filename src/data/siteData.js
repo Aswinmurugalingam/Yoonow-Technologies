@@ -90,6 +90,10 @@ const nav = [
     href: '/services'
   },
   {
+    label: 'Technology',
+    href: '/technology-stack'
+  },
+  {
     label: 'Projects',
     href: '/projects'
   },
@@ -493,7 +497,8 @@ const completedProjects = [
     needText: 'Yoonow Technologies can build custom attendance, approval, reporting and admin software based on your company workflow, user roles, documents, notifications and reporting requirements.'
   },
   {
-    slug: 'project-management-software',
+    slug: 'project-expense-management-software',
+    aliases: ['project-management-software'],
     priority: '02',
     title: 'Project Expense Management Software',
     subtitle: 'Internal expense dashboard that converts Electra attendance days into surveyor and draftsman salary cost reports.',
@@ -718,7 +723,8 @@ const completedProjects = [
       'software'
     ],
     needLabel: 'Need Similar Software?',
-    needTitle: 'Do you need billing or invoice software like this?'
+    needTitle: 'Do you need billing or invoice software like this?',
+    needText: 'Do you need billing, quotation, invoice, receipt, payment tracking, backup, and print-ready business software with secure login and professional document output?'
   },
   {
     slug: 'drone-data-visualization-platform',
@@ -841,6 +847,16 @@ const completedProjects = [
     category: 'Network + NAS + CCTV',
     image: '/assets/images/projects/office-infrastructure-preview.webp',
     status: 'Completed project',
+    accessType: 'internalPopup',
+    liveLabel: 'Click here to view setup access note',
+    liveNote: 'This infrastructure project contains firewall, NAS and CCTV details, so live access is restricted for security and client privacy.',
+    internalTitle: 'Infrastructure Access Restricted',
+    internalMessage: 'This FortiGate, QNAP NAS and CCTV office setup is a real infrastructure project. Public live access is not provided because firewall, network storage, CCTV recording and office security details must stay private. A safe portfolio summary and screenshots are shown instead.',
+    internalBullets: [
+      'Firewall and network details protected',
+      'NAS and CCTV setup kept private',
+      'Safe project summary available'
+    ],
     needLabel: 'Need Similar Setup?',
     needTitle: 'Do you need a similar office IT, firewall, NAS or CCTV setup?',
     needText: 'Yoonow Technologies can plan, configure and support a professional office setup with firewall security, NAS storage, CCTV recording, monitoring, documentation and future maintenance requirements.',
@@ -863,7 +879,9 @@ const completedProjects = [
     solution: 'A combined office IT setup was prepared with FortiGate firewall for network security, switches and cabling for stable workstation connectivity, QNAP NAS for centralised shared folders and CCTV recording integration, plus monitoring access for office camera review. The result is a cleaner, controlled and easier-to-maintain office infrastructure workflow.',
     workflowNote: 'This portfolio entry merges the earlier Project 05 FortiGate Office Network Setup, Project 06 QNAP NAS Office File System and Project 07 CCTV + QNAP QVR Pro Setup because all three belong to the same completed office infrastructure environment.',
     gallery: [
-      '/assets/images/projects/office-infrastructure-preview.webp'
+      '/assets/images/projects/office-infrastructure-fortigate.webp',
+      '/assets/images/projects/office-infrastructure-qnap-nas.webp',
+      '/assets/images/projects/office-infrastructure-cctv.webp'
     ],
     modules: [
       'FortiGate firewall gateway configuration for office internet, LAN control and secured network traffic flow.',
@@ -914,7 +932,9 @@ const completedProjects = [
       'Public portfolio images and descriptions use safe infrastructure wording without passwords, public IPs, VPN keys, usernames, serial numbers or license details.'
     ],
     visualStructure: [
-      'Complete office infrastructure preview showing FortiGate network security, QNAP NAS storage and CCTV workflow as one connected setup.'
+      'FortiGate firewall, switches and organised cabling shown as the network/security control layer for the office infrastructure.',
+      'QNAP NAS storage units shown as the central shared-file system for office users and project data.',
+      'CCTV cameras and monitoring screen shown as the surveillance and QVR-style recording workflow for the same office.'
     ],
     trustNotes: [
       'Shows Yoonow can plan office infrastructure as one connected system instead of only fixing devices one by one.',
@@ -936,7 +956,8 @@ const completedProjects = [
     ]
   },
   {
-    slug: 'geometa-pro-website',
+    slug: 'geometa-pro-tool',
+    aliases: ['geometa-pro-website'],
     priority: '06',
     title: 'GeoMeta Pro GPS & EXIF Toolkit',
     subtitle: 'Browser-based EXIF metadata viewer with GPS mapping, privacy review, metadata editing, and export tools.',
@@ -1405,7 +1426,7 @@ const completedProjects = [
       'Live page available after release'
     ],
     needLabel: 'Need Similar Website?',
-    needTitle: 'Do you need a similar fashion webpage or similar like this?',
+    needTitle: 'Do you need a similar fashion or portfolio website like this?',
     needText: 'Yoonow Technologies can design and build a professional webpage for boutiques, fashion brands, costume designers, bridal studios and training centres with service sections, gallery, booking CTA, WhatsApp flow and premium brand presentation.',
     stack: [
       'TanStack Start',
@@ -1702,7 +1723,7 @@ const completedProjects = [
       'Custom CSS used for modern light interface, gradient typography, floating hero cards and responsive engineering-product layout.',
       'JavaScript module planning included for featured tools, calculators, utilities and interactive page behaviour.',
       'Engineering discipline folders planned for civil, structural, mechanical, electrical, surveying, chemical, environmental and computer tools.',
-      'Calculator page structure prepared for working tools and future TODO calculators across multiple engineering categories.',
+      'Calculator page structure prepared for working tools, with additional calculators planned for future engineering categories.',
       'AI assistant page structure prepared as a future technical help layer for formulas, explanations and problem support.',
       'SEO metadata, canonical URL, sitemap and robots.txt prepared for public search visibility and indexing.',
       'AdSense placement planning included with top, mid-page, bottom and sidebar advertisement positions after approval.',
@@ -2101,6 +2122,93 @@ const launchReadiness = [
   }
 ];
 
+
+const technologyStack = [
+  {
+    category: 'Frontend Experience',
+    shortCategory: 'Frontend',
+    icon: 'code',
+    summary: 'Premium, responsive, animated, and conversion-focused user interfaces for business websites, portals, dashboards, landing pages, and customer-facing digital products.',
+    tools: ['HTML5', 'CSS3', 'JavaScript ES6+', 'TypeScript', 'React', 'Next.js', 'Vite', 'Tailwind CSS', 'Bootstrap', 'Framer Motion', 'GSAP', 'Three.js', 'Spline/3D UI', 'Figma UI Design', 'Responsive UI', 'Accessibility', 'SEO Structure', 'Schema Markup', 'Lighthouse Optimization', 'Cross-Browser QA'],
+    capabilities: [
+      'Responsive UI for mobile, tablet, laptop, desktop, and large display screens',
+      'Modern component-based interfaces for service pages, pricing cards, dashboards, forms, and project pages',
+      'Premium animation systems including reveal effects, hover interactions, glass cards, and 3D-style presentation sections',
+      'Conversion-focused CTA placement for quote requests, WhatsApp, email, phone clicks, and lead forms',
+      'SEO-friendly page structure with proper headings, metadata, alt text, internal links, and crawlable content',
+      'Performance-focused asset loading with optimized images, lazy loading, cache-busting, and clean layout behavior',
+      'Consistent visual system for brand colors, spacing, 3D hover cards, CTA hierarchy, and reusable UI sections'
+    ],
+    output: 'A polished, fast, premium-looking frontend that improves trust, keeps visitors engaged, and helps businesses generate enquiries.'
+  },
+  {
+    category: 'Backend & Data Flow',
+    shortCategory: 'Backend',
+    icon: 'server',
+    summary: 'Reliable backend architecture for enquiry flows, custom software, dashboards, authentication, databases, file uploads, notifications, admin panels, and business automation.',
+    tools: ['Node.js', 'Express.js', 'REST APIs', 'Supabase', 'PostgreSQL', 'MySQL', 'MongoDB', 'Firebase', 'Prisma ORM', 'JWT Auth', 'Role Access', 'Admin Panels', 'File Uploads', 'Multer', 'SMTP Mail', 'Nodemailer', 'Google OAuth', 'Razorpay/Stripe Ready', 'Webhook Flow', 'Cron/Backup Planning'],
+    capabilities: [
+      'Secure contact, quote, and lead form processing with attachment handling and validation',
+      'Database planning for customers, users, documents, invoices, payments, attendance, expenses, and reports',
+      'Admin dashboards with search, filters, status tracking, role access, and structured data management',
+      'Email notification pipelines using domain email, SMTP, lead routing, and branded HTML templates',
+      'API planning for future integrations such as payment gateway, WhatsApp, Google login, maps, and reporting tools',
+      'Maintainable backend structure with clean error handling, reusable logic, and future module expansion planning'
+    ],
+    output: 'A reliable software backbone that keeps business data organized, secure, searchable, and ready to scale.'
+  },
+  {
+    category: 'Infrastructure & Deployment',
+    shortCategory: 'Infrastructure',
+    icon: 'network',
+    summary: 'End-to-end digital and office infrastructure planning covering hosting, domains, DNS, business email, cloud deployment, networks, NAS, CCTV, firewall basics, and handover documentation.',
+    tools: ['Vercel', 'Netlify', 'Cloudflare', 'Cloudflare DNS/WAF', 'GitHub', 'GitHub Actions', 'Hostinger', 'GoDaddy', 'cPanel', 'VPS', 'Docker Basics', 'Nginx Basics', 'AWS Ready', 'DigitalOcean Ready', 'Google Workspace', 'Microsoft 365', 'Zoho Mail', 'FortiGate', 'QNAP NAS', 'Ubiquiti/UniFi', 'MikroTik', 'Hikvision/CP Plus CCTV'],
+    capabilities: [
+      'Domain, DNS, SSL, hosting, business email, and deployment setup for professional website launches',
+      'Cloud deployment workflow with GitHub, Vercel, environment variables, redirects, sitemap, and robots setup',
+      'Office network planning including router, switch, firewall, Wi-Fi, NAS, CCTV, and access point readiness',
+      'Business email configuration with SPF, DKIM, DMARC, MX records, aliases, and mailbox planning',
+      'Backup and storage planning for NAS, shared folders, project files, access control, and continuity needs',
+      'Handover documentation with important URLs, credentials checklist, renewal dates, support notes, and maintenance flow'
+    ],
+    output: 'A stable digital and office technology foundation that supports daily operations without vendor confusion.'
+  },
+  {
+    category: 'Security, Monitoring & Trust',
+    shortCategory: 'Security',
+    icon: 'shield',
+    summary: 'Practical security and trust layers for public websites, forms, admin access, DNS, business email, backups, analytics, indexing, monitoring, and long-term maintenance readiness.',
+    tools: ['SSL/HTTPS', 'Security Headers', 'Cloudflare WAF', 'Rate Limiting', 'Honeypot Forms', 'Input Validation', 'reCAPTCHA/hCaptcha Ready', 'JWT/OAuth', 'Access Control', 'OWASP Basics', 'Backup Planning', 'Uptime Monitoring', 'Google Analytics 4', 'Search Console', 'Event Tracking', 'Privacy Policy', 'Terms Pages', 'DMARC/SPF/DKIM', 'Firewall Rules', 'Audit Checklist'],
+    capabilities: [
+      'SSL, security headers, anti-spam checks, and safer public form handling for lead generation pages',
+      'GA4, custom lead events, Search Console, sitemap, favicon, and indexing setup for visibility tracking',
+      'Access control planning for private links, admin dashboards, internal project access, and user roles',
+      'Business email trust setup with SPF, DKIM, DMARC, and phishing-risk reduction basics',
+      'Privacy, Terms, client data handling, attachment safety guidance, and professional enquiry communication',
+      'Maintenance planning for backups, updates, renewals, monitoring, security checks, and support follow-up'
+    ],
+    output: 'A trust-focused setup that protects enquiry flow, improves visibility, and supports long-term professional operation.'
+  }
+];
+
+const testimonials = [
+  {
+    title: 'Business website launch',
+    text: 'Professional website structure, enquiry flow, SEO setup, and launch guidance prepared for business visibility and client trust.',
+    result: 'Website + enquiry flow'
+  },
+  {
+    title: 'Software workflow planning',
+    text: 'Custom dashboard and business process planning focused on real user roles, reports, daily work, and future scalability.',
+    result: 'Workflow-ready software'
+  },
+  {
+    title: 'IT infrastructure support',
+    text: 'Network, CCTV, NAS, device readiness, and documentation support planned as one connected business technology setup.',
+    result: 'Structured IT foundation'
+  }
+];
+
 const video = {
   title: 'See how we support businesses day to day.',
   text: 'A short walkthrough of how our team handles on-site visits, AMC checks, and support requests.',
@@ -2122,4 +2230,4 @@ const promo = {
   cta: 'Book Free Assessment'
 };
 
-module.exports = { site, nav, technologies, completedProjects, services, localSeoServices, seoKeywords, amcPillars, plans, developmentPackages, industries, stats, launchReadiness, video, promo };
+module.exports = { site, nav, technologies, technologyStack, testimonials, completedProjects, services, localSeoServices, seoKeywords, amcPillars, plans, developmentPackages, industries, stats, launchReadiness, video, promo };
