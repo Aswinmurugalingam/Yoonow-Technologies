@@ -7476,3 +7476,84 @@ video.lazy-video.is-ready {
     margin-top: 6px !important;
   }
 }
+
+
+/* Footer social media center links */
+.footer-bottom-social {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 18px !important;
+}
+.footer-copyright {
+  justify-self: start;
+}
+.footer-social-links {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.footer-social-links a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 178, 219, .18);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(61, 139, 255, .22), transparent 46%),
+    linear-gradient(145deg, rgba(13, 24, 43, .88), rgba(5, 8, 15, .96));
+  color: var(--muted);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 10px 24px rgba(0,0,0,.18);
+  transition: transform .24s var(--ease), border-color .24s var(--ease), color .24s var(--ease), box-shadow .24s var(--ease), background .24s var(--ease);
+}
+.footer-social-links a svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}
+.footer-social-links a span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.footer-social-links a:hover {
+  transform: translateY(-4px);
+  color: var(--text);
+  border-color: rgba(255, 107, 44, .38);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(61, 139, 255, .28), transparent 46%),
+    radial-gradient(circle at 70% 80%, rgba(255, 107, 44, .26), transparent 44%),
+    linear-gradient(145deg, rgba(13, 24, 43, .92), rgba(5, 8, 15, .98));
+  box-shadow: 0 16px 36px rgba(0,0,0,.26), 0 0 24px rgba(61,139,255,.12);
+}
+.footer-bottom-social .footer-legal-links {
+  justify-self: end;
+}
+
+@media (max-width: 860px) {
+  .footer-bottom-social {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    text-align: center !important;
+  }
+  .footer-copyright,
+  .footer-social-links,
+  .footer-bottom-social .footer-legal-links {
+    justify-self: center !important;
+  }
+  .footer-bottom-social .footer-legal-links {
+    justify-content: center !important;
+  }
+}

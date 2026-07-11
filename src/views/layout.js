@@ -32,11 +32,36 @@ function navigation(currentPath = '/') {
     </nav>`;
 }
 
+const socialProfiles = {
+  instagram: 'https://www.instagram.com/yoonowtech?igsh=dGV0YWppdmN4OWlx',
+  facebook: 'https://www.facebook.com/share/19Au4vW7LG/',
+  linkedin: 'https://www.linkedin.com/in/yoonow-technologies-a325a3421?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+  youtube: 'https://youtube.com/@yoonowtech?si=4TJL18Iee3jhuaRU'
+};
+
+function socialIcon(type) {
+  const icons = {
+    whatsapp: '<path d="M20.5 3.8A10.1 10.1 0 0 0 4.8 16.1L3.5 21l5-1.3A10.1 10.1 0 1 0 20.5 3.8Zm-6.3 15.1c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 14.2 18.9Zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1s-.7.8-.8 1c-.2.2-.3.2-.6.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.6-1.4-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.5.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.7.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .2-1.1 0-.2-.2-.3-.4-.4Z"/>',
+    instagram: '<path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm4.2 3.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3Zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3Zm5-2.6a1.1 1.1 0 1 1-1.1 1.1A1.1 1.1 0 0 1 17 6.7Z"/>',
+    facebook: '<path d="M14 8.2V6.8c0-.7.2-1.2 1.2-1.2H17V2.4c-.9-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6v1.4H7v3.6h2.8V22H14V11.8h2.8l.5-3.6H14Z"/>',
+    linkedin: '<path d="M6.5 8.8H2.8V21h3.7V8.8ZM4.7 7.1A2.1 2.1 0 1 0 4.7 3a2.1 2.1 0 0 0 0 4.1ZM21 21h-3.7v-6.3c0-1.5-.5-2.5-1.9-2.5-1 0-1.6.7-1.9 1.3-.1.2-.1.6-.1.9V21H9.7s.1-10.7 0-12.2h3.7v1.7c.5-.8 1.4-1.9 3.4-1.9 2.5 0 4.3 1.6 4.3 5.1V21Z"/>',
+    youtube: '<path d="M21.6 7.2s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9C15.7 4 12 4 12 4h0s-3.7 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2 9 2 10.9v1.8c0 1.9.4 3.7.4 3.7s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 6.5.2 6.5.2s3.7 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.4-1.8.4-3.7v-1.8c0-1.9-.4-3.7-.4-3.7ZM10 15V8.8l5.8 3.1L10 15Z"/>'
+  };
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${icons[type] || ''}</svg>`;
+}
+
 function footer() {
   const phoneHref = `tel:${site.phone.replace(/\s+/g, '')}`;
   const whatsappMessage = encodeURIComponent('Hi Yoonow Technologies, I need support for my business technology setup. Please share details.');
   const whatsappHref = `${site.whatsapp}?text=${whatsappMessage}`;
   const emailHref = `mailto:${site.email}?subject=${encodeURIComponent('Service Enquiry - Yoonow Technologies')}`;
+  const footerSocialLinks = [
+    { key: 'whatsapp', label: 'WhatsApp', href: whatsappHref },
+    { key: 'instagram', label: 'Instagram', href: socialProfiles.instagram },
+    { key: 'facebook', label: 'Facebook', href: socialProfiles.facebook },
+    { key: 'linkedin', label: 'LinkedIn', href: socialProfiles.linkedin },
+    { key: 'youtube', label: 'YouTube', href: socialProfiles.youtube }
+  ];
 
   return `
     <footer class="site-footer footer-pro">
@@ -91,8 +116,11 @@ function footer() {
         <div class="footer-mini-card"><strong>Digital Build</strong><span>Websites, Android apps, dashboards, forms, and custom business software.</span></div>
       </div>
 
-      <div class="page-grid footer-bottom">
-        <span>&copy; <span data-year></span> ${site.name}. All rights reserved.</span>
+      <div class="page-grid footer-bottom footer-bottom-social">
+        <span class="footer-copyright">&copy; <span data-year></span> ${site.name}. All rights reserved.</span>
+        <nav class="footer-social-links" aria-label="Yoonow Technologies social media links">
+          ${footerSocialLinks.map((item) => `<a href="${item.href}" target="_blank" rel="noopener" aria-label="${site.name} on ${item.label}" title="${item.label}">${socialIcon(item.key)}<span>${item.label}</span></a>`).join('')}
+        </nav>
         <span class="footer-legal-links"><a href="/faq">FAQ</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a></span>
       </div>
     </footer>`;
@@ -129,7 +157,7 @@ function renderPage({ title, description, path = '/', body, image = '/assets/ima
     gtag('js', new Date());
     gtag('config', 'G-W8M54BGB32');
   </script>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=techstack-card-inner-v29" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=footer-social-v30" />
   <script>
     (function () {
       try {
@@ -145,6 +173,13 @@ function renderPage({ title, description, path = '/', body, image = '/assets/ima
     name: site.name,
     description: site.description,
     url: site.url,
+    sameAs: [
+      socialProfiles.instagram,
+      socialProfiles.facebook,
+      socialProfiles.linkedin,
+      socialProfiles.youtube,
+      site.whatsapp
+    ],
     email: site.email,
     telephone: site.phone,
     areaServed: 'Global',
@@ -207,7 +242,7 @@ function renderPage({ title, description, path = '/', body, image = '/assets/ima
   ${navigation(path)}
   <main id="main">${body}</main>
   ${footer()}
-  <script src="/assets/js/main.js?v=techstack-card-inner-v29" defer></script>
+  <script src="/assets/js/main.js?v=footer-social-v30" defer></script>
 </body>
 </html>`;
 }
